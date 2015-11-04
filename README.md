@@ -29,7 +29,7 @@ Configuration sample:
         {
             "accessory": "WeMo",
             "name": "Bookcase Lamp",
-            "description": "The Festoon Lights in the Back Yard.",
+            "description": "The Lamp on the Bookcase.",
             "wemo_name": "Bookcase Lamp"
         }
     ]
