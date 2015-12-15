@@ -1,5 +1,7 @@
 # homebridge-wemo
 
+Check out my new [Homebridge-Platform-Wemo Plugin](https://github.com/rudders/homebridge-platform-wemo) that is a Platform module and supports switches and bulbs (Wemo Link)
+
 Supports Belkin WeMo devices on HomeBridge Platform
 
 This module does not support the WeMo Bulbs and their Bridge - I am working on homebridge-wemo2 that will.  Initial version should go up soon I hope.
