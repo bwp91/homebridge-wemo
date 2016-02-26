@@ -13,9 +13,9 @@
     "accessories": [
         {
             "accessory": "VSX",
-            "name": "x",
-            "description": "x",
-            "ip": "127.0.0.1"
+            "name": "Pioneer VSX-921",
+            "description": "My Reciever",
+            "ip": "192.168.178.20"
         }
     ]
 }
