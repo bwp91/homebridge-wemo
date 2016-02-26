@@ -18,7 +18,6 @@ VSXAccessory.prototype.getPowerOn = function(callback) {
 console.log("wip");
 
 
-  .bind(this));
 }
 
 VSXAccessory.prototype.setPowerOn = function(powerOn, callback) {
@@ -51,7 +50,7 @@ client.on('data', function(data) {
 client.on('close', function() {
     console.log('Connection closed');
 });
-  .bind(this));
+
 }
 
 VSXAccessory.prototype.getServices = function() {
