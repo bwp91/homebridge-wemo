@@ -24,7 +24,7 @@ VSXAccessory.prototype.setPowerOn = function(powerOn, callback) {
 
   var client = new net.Socket();
   
-client.connect(port, host, function() {
+client.connect(23, "192.168.178.20", function() {
 
     console.log('CONNECTED TO: ' + host + ':' + port);
     // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client 
