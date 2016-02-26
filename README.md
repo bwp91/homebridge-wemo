@@ -27,7 +27,7 @@ Configuration sample:
             "accessory": "VSX",
             "name": "My Reciever",
             "description": "Reciever",
-            "ip": "127.0.0.1"
+            "ip": "192.168.178.20"
         }
 
     ]
