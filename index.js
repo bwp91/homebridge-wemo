@@ -1,7 +1,5 @@
 var Service, Characteristic;
 var net = require('net');
-var TelnetInput = require('telnet-stream').TelnetInput;
-var TelnetOutput = require('telnet-stream').TelnetOutput;
 
 module.exports = function(homebridge){
   Service = homebridge.hap.Service;
