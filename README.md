@@ -1,4 +1,4 @@
-# homebridge-pioneer_vsx
+# homebridge-vsx
 
 Planned to controll pioneer av recievers
 
