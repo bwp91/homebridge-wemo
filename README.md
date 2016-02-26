@@ -2,6 +2,13 @@
 
 Planned to controll pioneer av recievers
 
+# I need your help!
+
+if you want to contribute to this plugin here are some ressources:
+
+http://raymondjulin.com/2012/07/15/remote-control-your-pioneer-vsx-receiver-over-telnet/
+http://www.pioneerelectronics.com/StaticFiles/PUSA/Files/Home%20Custom%20Install/VSX-1120-K-RS232.PDF
+
 # Installation
 
 !Dont install this is WIP!
