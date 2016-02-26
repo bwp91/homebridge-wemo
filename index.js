@@ -1,13 +1,15 @@
 var Service, Characteristic;
-var wemo = require('wemo');
+var net = require('net');
+var TelnetInput = require('telnet-stream').TelnetInput;
+var TelnetOutput = require('telnet-stream').TelnetOutput;
 
 module.exports = function(homebridge){
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
-  homebridge.registerAccessory("homebridge-wemo", "WeMo", WeMoAccessory);
+  homebridge.registerAccessory("homebridge-vsx", "VSX", VSXAccessory);
 }
 
-function WeMoAccessory(log, config) {
+function VSXAccessory(log, config) {
   this.log = log;
   this.name = config["name"];
   this.service = config["service"] || "Switch";
