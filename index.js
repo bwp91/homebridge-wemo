@@ -7,11 +7,10 @@ module.exports = function(homebridge){
   homebridge.registerAccessory("homebridge-vsx", "VSX", VSXAccessory);
 }
 
-function VSXAccessory(log, config) {
-  this.log = log;
+function VSXAccessory(config) {
   this.name = config["name"];
   this.ip = config["ip"];
-  this.device = null;
+  this.port = 23;
 }
 
 VSXAccessory.prototype.getPowerOn = function(callback) {
@@ -22,11 +21,33 @@ VSXAccessory.prototype.getPowerOn = function(callback) {
 
 VSXAccessory.prototype.setPowerOn = function(powerOn, callback) {
 
-  
+  var client = new net.Socket();
+client.connect(port, host, function() {
+
+    console.log('CONNECTED TO: ' + HOST + ':' + PORT);
+    // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client 
+    client.write('PO');
+
+});
+
+// Add a 'data' event handler for the client socket
+// data is what the server sent to this socket
+client.on('data', function(data) {
+    
+    console.log('DATA: ' + data);
+    // Close the client socket completely
+    client.destroy();
+    
+});
+
+// Add a 'close' event handler for the client socket
+client.on('close', function() {
+    console.log('Connection closed');
+});
   }.bind(this));
 }
 
-WeMoAccessory.prototype.getServices = function() {
+VSXAccessory.prototype.getServices = function() {
   
     var switchService = new Service.Switch(this.name);
     
