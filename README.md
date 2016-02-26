@@ -24,5 +24,4 @@ Configuration sample:
         }
 
     ]
-
 ```
