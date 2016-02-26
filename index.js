@@ -7,7 +7,7 @@ module.exports = function(homebridge) {
 
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
-  homebridge.registerAccessory("homebridge-vsx", "VSX", Computer);
+  homebridge.registerAccessory("homebridge-vsx", "VSX", VSX);
 }
 
 function VSX(log, config) {
@@ -20,11 +20,11 @@ function VSX(log, config) {
     .on('set', this._setOn.bind(this));
 }
 
-Computer.prototype.getServices = function() {
+VSX.prototype.getServices = function() {
   return [this._service];
 }
 
-Computer.prototype._setOn = function(on, callback) {
+VSX.prototype._setOn = function(on, callback) {
 
   if(on){
     var client = new net.Socket();
