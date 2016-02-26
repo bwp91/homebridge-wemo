@@ -20,6 +20,5 @@
   "dependencies": {
     "request": "^2.65.0",
     "net" : "",
-    "telnet-stream": ""
   }
 }
