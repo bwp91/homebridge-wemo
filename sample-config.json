@@ -6,28 +6,16 @@
         "pin": "031-45-156"
     },
     
-    "description": "The Onion!",
+    "description": "Hello World"",
 
     "platforms": [],
 
     "accessories": [
         {
-            "accessory": "WeMo",
-            "name": "Lounge Lamp",
-            "description": "The Lamp in the Loungeroom",
-            "wemo_name": "Lounge Lamp"
-        },
-        {
-            "accessory": "WeMo",
-            "name": "Outside Lights",
-            "description": "The Festoon Lights in the Back Yard.",
-            "wemo_name": "Festoon Lights"
-        },
-        {
-            "accessory": "WeMo",
-            "name": "Bookcase Lamp",
-            "description": "The Festoon Lights in the Back Yard.",
-            "wemo_name": "Bookcase Lamp"
+            "accessory": "VSX",
+            "name": "x",
+            "description": "x",
+            "ip": "127.0.0.1"
         }
     ]
 }
