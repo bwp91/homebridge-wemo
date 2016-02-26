@@ -66,6 +66,3 @@ VSXAccessory.prototype.getServices = function() {
     return [switchService];
  
   }
-}
-
-
