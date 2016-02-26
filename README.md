@@ -13,6 +13,8 @@ http://www.pioneerelectronics.com/StaticFiles/PUSA/Files/Home%20Custom%20Install
 
 1. Implement Telnet
 2. Parse response from telnet server for the ?P Querry and set On/Off Status
+3. Volume control
+4. Channel control
 
 # Installation
 
