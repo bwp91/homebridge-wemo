@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git://github.com/TG908/homebridge-vsx.git"
   },
   "dependencies": {
     "request": "^2.65.0",
