@@ -1,27 +1,20 @@
 # homebridge-vsx
 
-Planned to controll pioneer av recievers
-
-# I need your help!
-
-if you want to contribute to this plugin here are some ressources:
-
-http://raymondjulin.com/2012/07/15/remote-control-your-pioneer-vsx-receiver-over-telnet/
-http://www.pioneerelectronics.com/StaticFiles/PUSA/Files/Home%20Custom%20Install/VSX-1120-K-RS232.PDF
+homebrdige-vsx is a plugin for homebrige, wich allows switching on and off your AV Reciever.
 
 # To Do:
 
-1. Implement Telnet
-2. Parse response from telnet server for the ?P Querry and set On/Off Status
-3. Volume control
-4. Channel control
+1. Parse response from telnet server for the ?P Querry and set On/Off Status
+2. Volume control
+3. Channel control
 
 # Installation
 
-!Dont install this is WIP!
+Beta Software!
+Only the On/Off Switching works!
 
 1. Install homebridge using: npm install -g homebridge
-2. Install this plugin using: npm install -g homebridge-pioneer_vsx
+2. Install this plugin using: npm install -g homebridge-vsx
 3. Update your configuration file. See sample-config.json in this repository for a sample. 
 
 # Configuration
@@ -32,7 +25,7 @@ Configuration sample:
 "accessories": [
         {
             "accessory": "VSX",
-            "name": "My Reciever",
+            "name": "VSX-921",
             "description": "Reciever",
             "ip": "192.168.178.20"
         }
