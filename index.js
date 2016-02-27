@@ -37,11 +37,18 @@ VSX.prototype._setOn = function(on, callback) {
     client.destroy();
   
 });
-    // Add a 'close' event handler for the client sock
-//    client.on('close', function() {
-//    console.log('Connection closed');
+     //Add a 'close' event handler for the client sock
+    client.on('close', function() {
+    console.log('Connection closed');
 
-// });
+});
+ 
+    client.on('error', function(ex) {
+    console.log("handled error");
+    console.log(ex);
+    
+}); 
+
   } else {
     var client = new net.Socket();
     client.connect(PORT, HOST, function() {
@@ -53,6 +60,19 @@ VSX.prototype._setOn = function(on, callback) {
     client.destroy();
     
     });
+    
+    //Add a 'close' event handler for the client sock
+    client.on('close', function() {
+    console.log('Connection closed');
+    
+    });
+    
+    client.on('error', function(ex) {
+    console.log("handled error");
+    console.log(ex);
+    
+    }); 
+    
   }
   callback();
 }
