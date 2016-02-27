@@ -2,12 +2,6 @@
 
 homebrdige-vsx is a plugin for homebrige, wich allows switching on and off your AV Reciever.
 
-# To Do:
-
-1. Parse response from telnet server for the ?P Querry and set On/Off Status
-2. Volume control
-3. Channel control
-
 # Installation
 
 Beta Software!
@@ -32,3 +26,9 @@ Configuration sample:
 
     ]
 ```
+
+# To Do:
+
+1. Parse response from telnet server for the ?P Querry and set On/Off Status
+2. Volume control
+3. Channel control
