@@ -1,11 +1,11 @@
 # homebridge-vsx
 
-homebrdige-vsx is a plugin for homebrige, wich allows switching on and off your AV Reciever.
+homebrdige-vsx is a plugin made homebrige, wich allows switching on and off your Pioneer AV Reciever. All AV Recievers, wich work with the iControl AV5 App are supported.
 
 # Installation
 
 Beta Software!
-Only the On/Off Switching works!
+Only the On/Off Switching works yet!
 
 1. Install homebridge using: npm install -g homebridge
 2. Install this plugin using: npm install -g homebridge-vsx
