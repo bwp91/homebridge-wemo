@@ -1,7 +1,5 @@
 var Service, Characteristic;
 var net = require('net');
-var HOST = '192.168.178.20';
-var PORT = 23;
 
 module.exports = function(homebridge) {
 
@@ -13,7 +11,8 @@ module.exports = function(homebridge) {
 function VSX(log, config) {
   this.log = log;
   this.name = config.name;
-  HOST = config.ip;
+  this.HOST = config.ip;
+  this.PORT = 23;
 
   this.service = new Service.Switch(this.name);
   this.service.getCharacteristic(Characteristic.On)
@@ -28,9 +27,9 @@ VSX.prototype.getServices = function() {
 VSX.prototype.getOn = function(callback) {
   
   var client = new net.Socket();
-  client.connect(PORT, HOST, function() {
+  client.connect(this.PORT, this.HOST, function() {
    
-    console.log('CONNECTED TO: ' + HOST + ':' + PORT);
+    console.log('CONNECTED TO: ' + this.HOST + ':' + this.PORT);
     client.write('?P\r\n');
 
   }); 
@@ -77,9 +76,9 @@ VSX.prototype.setOn = function(on, callback) {
 
   if(on){
     var client = new net.Socket();
-    client.connect(PORT, HOST, function() {
+    client.connect(this.PORT, this.HOST, function() {
 
-    console.log('CONNECTED TO: ' + HOST + ':' + PORT);
+    console.log('CONNECTED TO: ' + this.HOST + ':' + this.PORT);
     // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client 
     client.write('PO\r\n');
     
@@ -105,9 +104,9 @@ VSX.prototype.setOn = function(on, callback) {
 
   } else {
     var client = new net.Socket();
-    client.connect(PORT, HOST, function() {
+    client.connect(this.PORT, this.HOST, function() {
 
-    console.log('CONNECTED TO: ' + HOST + ':' + PORT);
+    console.log('CONNECTED TO: ' + this.HOST + ':' + this.PORT);
     // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client 
     client.write('PF\r\n');
     
