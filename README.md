@@ -29,6 +29,5 @@ Configuration sample:
 
 # To Do:
 
-1. Parse response from telnet server for the ?P Querry and set On/Off Status
-2. Volume control
-3. Channel control
+1. Volume control
+2. Channel control
