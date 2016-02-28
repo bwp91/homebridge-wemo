@@ -4,8 +4,6 @@ homebrdige-vsx is a plugin made homebrige, wich allows switching on and off your
 
 # Installation
 
-Beta Software!
-Only the On/Off Switching works yet!
 
 1. Install homebridge using: npm install -g homebridge
 2. Install this plugin using: npm install -g homebridge-vsx
