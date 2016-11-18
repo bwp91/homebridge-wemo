@@ -12,7 +12,7 @@ function VSX(log, config) {
   this.log = log;
   this.name = config.name;
   this.HOST = config.ip;
-  this.PORT = 23;
+  this.PORT = config.port;
 
   this.service = new Service.Switch(this.name);
   this.service.getCharacteristic(Characteristic.On)
