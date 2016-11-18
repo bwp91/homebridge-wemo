@@ -15,7 +15,8 @@
             "accessory": "VSX",
             "name": "Pioneer VSX-921",
             "description": "My Reciever",
-            "ip": "192.168.178.20"
+            "ip": "192.168.178.20",
+            "port": 23
         }
     ]
 }
