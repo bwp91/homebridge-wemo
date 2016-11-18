@@ -19,7 +19,7 @@ Configuration sample:
             "accessory": "VSX",
             "name": "VSX-921",
             "description": "Reciever",
-            "ip": "192.168.178.20"
+            "ip": "192.168.178.20",
             "port": 23
         }
 
