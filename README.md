@@ -26,6 +26,9 @@ Configuration sample:
     ]
 ```
 
+
+Port 23 is the default port for older devices. If port 23 doesn't work for you try port 8102.
+
 # To Do:
 
 1. Volume control
