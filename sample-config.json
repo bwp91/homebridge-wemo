@@ -27,7 +27,8 @@
             "accessory": "WeMo",
             "name": "Bookcase Lamp",
             "description": "The Festoon Lights in the Back Yard.",
-            "wemo_name": "Bookcase Lamp"
+            "ip": "192.168.1.65",
+            "port": 49153,
         }
     ]
 }
