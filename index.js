@@ -13,8 +13,15 @@ function WeMoAccessory(log, config) {
   this.service = config["service"] || "Switch";
   this.wemoName = config["wemo_name"] || this.name; // fallback to "name" if you didn't specify an exact "wemo_name"
   this.device = null; // instance of WeMo, for controlling the discovered device
-  this.log("Searching for WeMo device with exact name '" + this.wemoName + "'...");
-  this.search();
+
+  if(config["ip"]){
+    var port = config["port"] || 49153;
+    this.log("Adding WeMo device using static IP:PORT " + config["ip"] + ":" + port + "...");
+    this.device = new wemo(config["ip"], port);
+  } else {
+    this.log("Searching for WeMo device with exact name '" + this.wemoName + "'...");
+    this.search();
+  }
 }
 
 WeMoAccessory.prototype.search = function() {
