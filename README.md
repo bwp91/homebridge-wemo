@@ -1,35 +1,32 @@
 # homebridge-vsx
 
-homebrdige-vsx is a plugin made homebrige, wich allows switching on and off your Pioneer AV Reciever. All AV Recievers (VSX and SC), wich work with the iControl AV5 App are supported.
+homebridge-vsx is a plugin made for [homebridge](https://github.com/nfarina/homebridge),
+which allows switching on and off your Pioneer AV receiver. All AV receivers (VSX and SC),
+which work with the iControl AV5 App are supported.
 
 # Installation
 
+1. Install the homebridge framework using `npm install -g homebridge`
+2. Install **homebridge-vsx** using `npm install -g homebridge-vsx`
+3. Update your configuration file. See `sample-config.json` in this repository for a sample. 
 
-1. Install homebridge using: npm install -g homebridge
-2. Install this plugin using: npm install -g homebridge-vsx
-3. Update your configuration file. See sample-config.json in this repository for a sample. 
-
-# Configuration
-
-Configuration sample:
-
- ```
+# Accessory configuration example
+```json
 "accessories": [
-        {
-            "accessory": "VSX",
-            "name": "VSX-921",
-            "description": "Reciever",
-            "ip": "192.168.178.20",
-            "port": 23
-        }
-
-    ]
+	{
+		"accessory": "VSX",
+		"name": "VSX-921",
+		"description": "Receiver",
+		"ip": "192.168.178.20",
+		"port": 23
+	}
+]
 ```
 
+*Notice: Port 23 is the default port for older devices. If port 23 doesn't work for you try port 8102.*
 
-Port 23 is the default port for older devices. If port 23 doesn't work for you try port 8102.
+# Roadmap
 
-# To Do:
-
-1. Volume control
-2. Channel control
+- [x] Toggling ON/OFF
+- [ ] Volume control
+- [ ] Channel control
