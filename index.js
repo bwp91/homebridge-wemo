@@ -55,9 +55,10 @@ VSX.prototype.getOn = function (callback) {
       callback(null, false);
     } else if (str.includes("PWR0")) {
       me.log("Power is On");
-      if (me.INPUT != null) {
+      if (me.INPUT) {
         client.write('?F\r\n'); // Request input
       } else {
+        callback(null, true);
         client.destroy();
       }
     } else if (str.includes("FN")) {
