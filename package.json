@@ -1,6 +1,6 @@
 {
   "name": "homebridge-vsx",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Pioneer-VSX plugin for homebridge: https://github.com/nfarina/homebridge",
   "license": "ISC",
   "keywords": [
