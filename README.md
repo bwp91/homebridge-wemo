@@ -14,6 +14,12 @@ This module does not support the WeMo Bulbs and their Bridge - I am working on h
 
 # Configuration
 
+Note, in order for the wemo homebridge plugin to work alongside the wemo app in iOS 13, you must:
+
+- Turn off wemo in the `Settings` app under `Privacy -> HomeKit`
+
+The wemo app will still work, but doing this will allow control of wemo outlets via Siri.  Without doing this, Siri will respond to on/off commands with something like "Hmm, that feature is not available for...".
+
 Configuration sample:
 
  ```
