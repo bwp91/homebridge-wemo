@@ -1,0 +1,89 @@
+{
+  "pluginAlias": "BelkinWeMo",
+  "pluginType": "platform",
+  "headerDisplay": "<p align='center'><img width='150px' src='https://raw.githubusercontent.com/donavanbecker/homebridge-platform-wemo/master/wemo/wemo.png'></p>\n\nThe **Homebridge Platform WeMo** plugin allows you to control your WeMo Devices from HomeKit. To get started setup your config below.",
+  "footerDisplay": "</p>\n\nFor Wemo Client see [Manual Setup Wiki](https://github.com/donavanbecker/homebridge-platform-wemo/wiki/Manual-Setup).</p>\n\nYour WeMo device is setup.",
+  "singular": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "placeholder": "Lounge Lamp",
+        "required": true
+      },
+      "description": {
+        "title": "Description",
+        "type": "string",
+        "placeholder": "The Lamp in the Loungeroom",
+        "required": true
+      },
+      "ip": {
+        "title": "IP",
+        "type": "string",
+        "placeholder": "192.168.1.65"
+      },
+      "port": {
+        "title": "Port",
+        "type": "integer",
+        "placeholder": "49153"
+      },
+      "wemo_name": {
+        "title": "Wemo Device Name",
+        "type": "string",
+        "placeholder": "Lounge Lamp"
+      }
+    },
+    "oneOf": [
+      {
+        "required": [
+          "ip",
+          "port"
+        ]
+      },
+      {
+        "required": [
+          "wemo_name"
+        ]
+      }
+    ]
+  },
+  "layout": [
+    {
+      "type": "flex",
+      "flex-flow": "row wrap",
+      "items": [
+        {
+          "key": "name",
+          "type": "name"
+        },
+        {
+          "key": "description",
+          "type": "description"
+        }
+      ]
+    },
+    {
+      "type": "flex",
+      "flex-flow": "row wrap",
+      "items": [
+        {
+          "key": "ip",
+          "type": "ip"
+        },
+        {
+          "key": "port",
+          "type": "port"
+        }
+      ]
+    },
+    {
+      "type": "flex",
+      "flex-flow": "row wrap",
+      "items": [
+        "wemo_name"
+      ]
+    }
+  ]
+}
