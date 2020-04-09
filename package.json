@@ -1,21 +1,22 @@
 {
   "name": "homebridge-wemo",
-  "version": "0.0.2",
-  "description": "wemo plugin for homebridge: https://github.com/nfarina/homebridge",
+  "version": "1.0.0",
+  "description": "wemo plugin for homebridge: https://github.com/homebridge/homebridge",
+  "author": "donavanbecker",
   "license": "ISC",
   "keywords": [
     "homebridge-plugin"
   ],
   "engines": {
     "node": ">=0.12.0",
-    "homebridge": ">=0.2.0"
+    "homebridge": ">=0.4.50"
   },
   "author": {
     "name": "Adrian Rudman"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/rudders/homebridge-wemo.git"
+    "url": "git://github.com/donavanbecker/homebridge-wemo.git"
   },
   "dependencies": {
     "request": "^2.65.0",
