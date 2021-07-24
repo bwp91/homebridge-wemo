@@ -29,7 +29,7 @@ assignees: ''
 
 
 
-* Which version of this plugin (homebridge-platform-wemo) do you have? Has the issue started since upgrading from a previous version?
+* Which version of this plugin (homebridge-wemo) do you have? Has the issue started since upgrading from a previous version?
 
 
 

@@ -1,6 +1,6 @@
 {
-  "name": "homebridge-platform-wemo",
-  "alias": "BelkinWeMo",
+  "name": "homebridge-wemo",
+  "alias": "Wemo",
   "version": "3.3.0",
   "author": "bwp91",
   "description": "Homebridge plugin to control Wemo devices.",
@@ -8,7 +8,6 @@
   "keywords": [
     "homebridge",
     "homebridge-plugin",
-    "homebridge-platform-wemo",
     "hoobs",
     "hoobs-plugin",
     "homekit",
@@ -22,10 +21,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bwp91/homebridge-platform-wemo.git"
+    "url": "https://github.com/bwp91/homebridge-wemo.git"
   },
   "bugs": {
-    "url": "https://github.com/bwp91/homebridge-platform-wemo/issues"
+    "url": "https://github.com/bwp91/homebridge-wemo/issues"
   },
   "funding": [
     {

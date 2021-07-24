@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to this homebridge-platform-wemo will be documented in this file.
+All notable changes to this homebridge-wemo will be documented in this file.
 
 ## 3.3.0 (2021-07-22)
 
@@ -32,7 +32,7 @@ All notable changes to this homebridge-platform-wemo will be documented in this 
 
 ### Fixed
 
-- An issue initialising Wemo light switch devices ([#262](https://github.com/bwp91/homebridge-platform-wemo/issues/262))
+- An issue initialising Wemo light switch devices ([#262](https://github.com/bwp91/homebridge-wemo/issues/262))
 
 ## 3.2.0 (2021-07-07)
 
@@ -77,7 +77,7 @@ All notable changes to this homebridge-platform-wemo will be documented in this 
 
 ### Added
 
-- Expose a Wemo Outlet as a _AirPurifier_ accessory type [[#257](https://github.com/bwp91/homebridge-platform-wemo/issues/257)]
+- Expose a Wemo Outlet as a _AirPurifier_ accessory type [[#257](https://github.com/bwp91/homebridge-wemo/issues/257)]
 
 ### Changed
 
