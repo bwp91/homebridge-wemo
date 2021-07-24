@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-wemo will be documented in this file.
 
+## 3.4.1 (2021-07-24)
+
+### Fixed
+
+- Use new plugin alias in config schema file
+
 ## 3.4.0 (2021-07-24)
 
 ### Changed
