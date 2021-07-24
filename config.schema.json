@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "BelkinWeMo",
+  "pluginAlias": "Wemo",
   "pluginType": "platform",
   "customUi": true,
   "customUiPath": "./lib/homebridge-ui",
