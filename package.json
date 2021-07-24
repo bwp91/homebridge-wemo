@@ -12,7 +12,8 @@
     "hoobs-plugin",
     "homekit",
     "siri",
-    "wemo"
+    "wemo",
+    "belkin"
   ],
   "main": "lib/index.js",
   "engines": {
