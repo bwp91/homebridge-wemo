@@ -1,0 +1,339 @@
+<p class="text-center">
+  <img
+    src="https://user-images.githubusercontent.com/43026681/101325568-e03ddb00-3863-11eb-8b66-54c6a322840a.png"
+    alt="homebridge-platform-wemo logo"
+    style="width: 60%;"
+  />
+</p>
+<div id="pageIntro" class="text-center" style="display: none;">
+  <p class="lead">Thank you for installing <strong>homebridge-platform-wemo</strong></p>
+  <p>Remember to click Save on the next page</p>
+  <button type="button" class="btn btn-primary" id="introContinue">Continue &rarr;</button>
+</div>
+<div
+  id="menuWrapper"
+  class="btn-group w-100 mb-0"
+  role="group"
+  aria-label="UI Menu"
+  style="display: none;"
+>
+  <button type="button" class="btn btn-primary ml-0" id="menuSettings">Settings</button>
+  <button type="button" class="btn btn-primary" id="menuDevices">My Devices</button>
+  <button type="button" class="btn btn-primary mr-0" id="menuHome">Support</button>
+</div>
+<div
+  id="disabledBanner"
+  class="alert alert-secondary mb-0 mt-3"
+  role="alert"
+  style="display: none;"
+>
+  Plugin is currently disabled
+  <button id="disabledEnable" type="button" class="btn btn-link p-0 m-0 float-right">Enable</button>
+</div>
+<div id="pageDevices" class="mt-4" style="display: none;">
+  <div id="deviceInfo">
+    <form>
+      <div class="form-group">
+        <select class="form-control" id="deviceSelect"></select>
+      </div>
+    </form>
+    <table class="table w-100" id="deviceTable" style="display: none;">
+      <thead>
+        <tr class="table-active">
+          <th scope="col" style="width: 40%;">Device Name</th>
+          <th scope="col" style="width: 60%;" id="displayName"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Controllable</th>
+          <td id="controllable"></td>
+        </tr>
+        <tr>
+          <th scope="row">IP Address</th>
+          <td id="ipAddress"></td>
+        </tr>
+        <tr>
+          <th scope="row">Port</th>
+          <td id="port"></td>
+        </tr>
+        <tr>
+          <th scope="row">UPnP Info</th>
+          <td id="upnpInfo"></td>
+        </tr>
+        <tr>
+          <th scope="row">Serial Number</th>
+          <td id="serialNumber"></td>
+        </tr>
+        <tr>
+          <th scope="row">MAC Address</th>
+          <td id="macAddress"></td>
+        </tr>
+        <tr>
+          <th scope="row">Firmware</th>
+          <td id="firmware"></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center" id="imgIcon"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div id="pageSupport" class="mt-4" style="display: none;">
+  <p class="text-center lead">Thank you for using <strong>homebridge-platform-wemo</strong></p>
+  <p class="text-center">The links below will take you to our GitHub wiki</p>
+  <h4>Setup</h4>
+  <ul>
+    <li>
+      <a href="https://github.com/bwp91/homebridge-platform-wemo/wiki/Installation" target="_blank"
+        >Installation</a
+      >
+    </li>
+    <li>
+      <a href="https://github.com/bwp91/homebridge-platform-wemo/wiki/Configuration" target="_blank"
+        >Configuration</a
+      >
+    </li>
+    <li>
+      <a href="https://github.com/bwp91/homebridge-platform-wemo/wiki/Beta-Version" target="_blank"
+        >Beta Version</a
+      >
+    </li>
+    <li>
+      <a href="https://github.com/bwp91/homebridge-platform-wemo/wiki/Node-Version" target="_blank"
+        >Node Version</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://github.com/bwp91/homebridge-platform-wemo/wiki/Uninstallation"
+        target="_blank"
+        >Uninstallation</a
+      >
+    </li>
+  </ul>
+  <h4>Features</h4>
+  <ul>
+    <li>
+      <a
+        href="https://github.com/bwp91/homebridge-platform-wemo/wiki/Supported-Devices"
+        target="_blank"
+        >Supported Devices</a
+      >
+    </li>
+  </ul>
+  <h4>Help/About</h4>
+  <ul>
+    <li>
+      <a href="https://github.com/bwp91/homebridge-platform-wemo/wiki/Common-Errors" target="_blank"
+        >Common Errors</a
+      >
+    </li>
+    <li>
+      <a href="https://github.com/bwp91/homebridge-platform-wemo/issues/new/choose" target="_blank"
+        >Support Request</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://github.com/bwp91/homebridge-platform-wemo/blob/latest/CHANGELOG.md"
+        target="_blank"
+        >Changelog</a
+      >
+    </li>
+    <li><a href="https://github.com/sponsors/bwp91" target="_blank">About Me</a></li>
+  </ul>
+  <h4>Credits</h4>
+  <ul>
+    <li>
+      To the creator of this plugin:
+      <a href="https://github.com/rudders" target="_blank">@rudders</a>, and to
+      <a href="https://github.com/devbobo" target="_blank">@devbobo</a> for his contributions.
+    </li>
+    <li>
+      To the creator of
+      <a href="https://github.com/timonreinhard/wemo-client" target="_blank">wemo-client</a> (which
+      is now contained within this plugin):
+      <a href="https://github.com/timonreinhard" target="_blank">@timonreinhard</a>.
+    </li>
+    <li>
+      To <a href="http://www.hardill.me.uk/wordpress/tag/wemo/" target="_blank">Ben Hardill</a> for
+      his research on Wemo devices.
+    </li>
+    <li>To all users who have helped/tested to enable functionality for new devices.</li>
+    <li>
+      To the creators/contributors of
+      <a href="https://github.com/simont77/fakegato-history" target="_blank">Fakegato</a>:
+      <a href="https://github.com/simont77" target="_blank">@simont77</a> and
+      <a href="https://github.com/NorthernMan54" target="_blank">@NorthernMan54</a>.
+    </li>
+    <li>
+      To the creator of the awesome plugin header logo:
+      <a href="https://www.instagram.com/keryan.me" target="_blank">Keryan Belahcene</a>.
+    </li>
+    <li>
+      To the creators/contributors of
+      <a href="https://homebridge.io" target="_blank">Homebridge</a> who make this plugin possible.
+    </li>
+  </ul>
+  <h4>Disclaimer</h4>
+  <ul>
+    <li>
+      I am in no way affiliated with Belkin/Wemo and this plugin is a personal project that I
+      maintain in my free time.
+    </li>
+    <li>Use this plugin entirely at your own risk - please see licence for more information.</li>
+  </ul>
+</div>
+<script>
+  ;(async () => {
+    try {
+      const currentConfig = await homebridge.getPluginConfig()
+      showIntro = () => {
+        const introContinue = document.getElementById('introContinue')
+        introContinue.addEventListener('click', () => {
+          homebridge.showSpinner()
+          document.getElementById('pageIntro').style.display = 'none'
+          document.getElementById('menuWrapper').style.display = 'inline-flex'
+          showSettings()
+          homebridge.hideSpinner()
+        })
+        document.getElementById('pageIntro').style.display = 'block'
+      }
+      showDevices = async () => {
+        homebridge.showSpinner()
+        homebridge.hideSchemaForm()
+        document.getElementById('menuHome').classList.remove('btn-elegant')
+        document.getElementById('menuHome').classList.add('btn-primary')
+        document.getElementById('menuDevices').classList.add('btn-elegant')
+        document.getElementById('menuDevices').classList.remove('btn-primary')
+        document.getElementById('menuSettings').classList.remove('btn-elegant')
+        document.getElementById('menuSettings').classList.add('btn-primary')
+        document.getElementById('pageSupport').style.display = 'none'
+        document.getElementById('pageDevices').style.display = 'block'
+        const cachedAccessories =
+          typeof homebridge.getCachedAccessories === 'function'
+            ? await homebridge.getCachedAccessories()
+            : await homebridge.request('/getCachedAccessories')
+        if (cachedAccessories.length > 0) {
+          cachedAccessories.sort((a, b) => {
+            return a.displayName.toLowerCase() > b.displayName.toLowerCase()
+              ? 1
+              : b.displayName.toLowerCase() > a.displayName.toLowerCase()
+              ? -1
+              : 0
+          })
+        }
+        const deviceSelect = document.getElementById('deviceSelect')
+        deviceSelect.innerHTML = ''
+        cachedAccessories.forEach(a => {
+          const option = document.createElement('option')
+          option.text = a.displayName
+          option.value = a.context.serialNumber
+          deviceSelect.add(option)
+        })
+        showDeviceInfo = async serialNumber => {
+          homebridge.showSpinner()
+          const thisAcc = cachedAccessories.find(x => x.context.serialNumber === serialNumber)
+          const context = thisAcc.context
+          document.getElementById('displayName').innerHTML = thisAcc.displayName
+          document.getElementById('controllable').innerHTML = context.controllable
+            ? '<i class="fas fa-circle mr-1 green-text"></i> Yes'
+            : '<i class="fas fa-circle mr-1 red-text"></i> No'
+          document.getElementById('ipAddress').innerHTML = context.ipAddress || 'N/A'
+          document.getElementById('port').innerHTML = context.port || 'N/A'
+          document.getElementById('upnpInfo').innerHTML =
+            context.ipAddress && context.port
+              ? '<a href="http://' +
+                context.ipAddress +
+                ':' +
+                context.port +
+                '/setup.xml" target="_blank" class="primary-text">Visit XML &rarr;</a>'
+              : 'N/A'
+          document.getElementById('serialNumber').innerHTML = context.serialNumber || 'N/A'
+          document.getElementById('macAddress').innerHTML = context.macAddress || 'N/A'
+          document.getElementById('firmware').innerHTML = context.firmware || 'N/A'
+          document.getElementById('imgIcon').innerHTML =
+            context.icon && context.ipAddress && context.port
+              ? '<img src="http://' +
+                context.ipAddress +
+                ':' +
+                context.port +
+                '/' +
+                context.icon +
+                '" style="width: 150px;">'
+              : ''
+          document.getElementById('deviceTable').style.display = 'inline-table'
+          homebridge.hideSpinner()
+        }
+        deviceSelect.addEventListener('change', event => showDeviceInfo(event.target.value))
+        if (cachedAccessories.length > 0) {
+          showDeviceInfo(cachedAccessories[0].context.serialNumber)
+        } else {
+          const option = document.createElement('option')
+          option.text = 'No Devices'
+          deviceSelect.add(option)
+          deviceSelect.disabled = true
+        }
+        homebridge.hideSpinner()
+      }
+      showSupport = () => {
+        homebridge.showSpinner()
+        homebridge.hideSchemaForm()
+        document.getElementById('menuHome').classList.add('btn-elegant')
+        document.getElementById('menuHome').classList.remove('btn-primary')
+        document.getElementById('menuDevices').classList.remove('btn-elegant')
+        document.getElementById('menuDevices').classList.add('btn-primary')
+        document.getElementById('menuSettings').classList.remove('btn-elegant')
+        document.getElementById('menuSettings').classList.add('btn-primary')
+        document.getElementById('pageSupport').style.display = 'block'
+        document.getElementById('pageDevices').style.display = 'none'
+        homebridge.hideSpinner()
+      }
+      showSettings = () => {
+        homebridge.showSpinner()
+        document.getElementById('menuHome').classList.remove('btn-elegant')
+        document.getElementById('menuHome').classList.add('btn-primary')
+        document.getElementById('menuDevices').classList.remove('btn-elegant')
+        document.getElementById('menuDevices').classList.add('btn-primary')
+        document.getElementById('menuSettings').classList.add('btn-elegant')
+        document.getElementById('menuSettings').classList.remove('btn-primary')
+        document.getElementById('pageSupport').style.display = 'none'
+        document.getElementById('pageDevices').style.display = 'none'
+        homebridge.showSchemaForm()
+        homebridge.hideSpinner()
+      }
+      showDisabledBanner = () => {
+        document.getElementById('disabledBanner').style.display = 'block'
+      }
+      enablePlugin = async () => {
+        homebridge.showSpinner()
+        document.getElementById('disabledBanner').style.display = 'none'
+        currentConfig[0].disablePlugin = false
+        await homebridge.updatePluginConfig(currentConfig)
+        await homebridge.savePluginConfig()
+        homebridge.hideSpinner()
+      }
+      menuHome.addEventListener('click', () => showSupport())
+      menuDevices.addEventListener('click', () => showDevices())
+      menuSettings.addEventListener('click', () => showSettings())
+      disabledEnable.addEventListener('click', () => enablePlugin())
+      if (currentConfig.length) {
+        document.getElementById('menuWrapper').style.display = 'inline-flex'
+        showSettings()
+        if (currentConfig[0].disablePlugin) {
+          showDisabledBanner()
+        }
+      } else {
+        currentConfig.push({ name: 'Wemo' })
+        await homebridge.updatePluginConfig(currentConfig)
+        showIntro()
+      }
+    } catch (err) {
+      homebridge.toast.error(err.message, 'Error')
+    } finally {
+      homebridge.hideSpinner()
+    }
+  })()
+</script>

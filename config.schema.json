@@ -1,88 +1,826 @@
 {
   "pluginAlias": "BelkinWeMo",
   "pluginType": "platform",
-  "headerDisplay": "<p align='center'><img width='150px' src='https://raw.githubusercontent.com/donavanbecker/homebridge-platform-wemo/master/wemo/wemo.png'></p>\n\nThe **Homebridge Platform WeMo** plugin allows you to control your WeMo Devices from HomeKit. To get started setup your config below.",
-  "footerDisplay": "</p>\n\nFor Wemo Client see [Manual Setup Wiki](https://github.com/donavanbecker/homebridge-platform-wemo/wiki/Manual-Setup).</p>\n\nYour WeMo device is setup.",
+  "customUi": true,
+  "customUiPath": "./lib/homebridge-ui",
+  "headerDisplay": "<p align=\"center\"><img width=\"60%\" src=\"https://user-images.githubusercontent.com/43026681/101325568-e03ddb00-3863-11eb-8b66-54c6a322840a.png\"></p><p align=\"center\">For help and support please visit our <a href=\"https://github.com/bwp91/homebridge-platform-wemo/wiki\">GitHub Wiki</a>. We hope you find this plugin useful!</p>",
   "singular": true,
   "schema": {
     "type": "object",
     "properties": {
       "name": {
-        "title": "Name",
+        "title": "Plugin Name",
         "type": "string",
-        "placeholder": "Lounge Lamp",
-        "required": true
+        "default": "Wemo"
       },
-      "description": {
-        "title": "Description",
+      "mode": {
         "type": "string",
-        "placeholder": "The Lamp in the Loungeroom",
-        "required": true
+        "title": "Device Detection",
+        "description": "This setting defines how the plugin finds your devices.",
+        "default": "auto",
+        "oneOf": [
+          {
+            "title": "Auto (Discovery + Manual Devices)",
+            "enum": ["auto"]
+          },
+          {
+            "title": "Manual (Only Manual Devices)",
+            "enum": ["manual"]
+          }
+        ]
       },
-      "ip": {
-        "title": "IP",
-        "type": "string",
-        "placeholder": "192.168.1.65"
-      },
-      "port": {
-        "title": "Port",
+      "discoveryInterval": {
         "type": "integer",
-        "placeholder": "49153"
+        "title": "Refresh Interval",
+        "description": "An interval (in seconds) in which the plugin will initally find and continually check device connections. Must be 15 or more.",
+        "placeholder": 30,
+        "minimum": 15
       },
-      "wemo_name": {
-        "title": "Wemo Device Name",
-        "type": "string",
-        "placeholder": "Lounge Lamp"
-      }
-    },
-    "oneOf": [
-      {
-        "required": [
-          "ip",
-          "port"
-        ]
+      "disableDeviceLogging": {
+        "type": "boolean",
+        "title": "Disable Device Logging",
+        "description": "Global logging setting for accessory status changes. If true then accessory status changes will not be logged. This can also be set per accessory later in the config."
       },
-      {
-        "required": [
-          "wemo_name"
-        ]
+      "debug": {
+        "title": "Debug Logging",
+        "type": "boolean",
+        "description": "Global logging setting for the plugin. If true then debug information will be added to the log. This can also be set per accessory later in the config."
+      },
+      "debugFakegato": {
+        "title": "Debug Fakegato",
+        "description": "If true, the included Fakegato library will debug to the log.",
+        "type": "boolean"
+      },
+      "debugNodeSSDP": {
+        "title": "Debug Fakegato",
+        "description": "If true, the included node-ssdp library will debug to the log.",
+        "type": "boolean"
+      },
+      "removeByName": {
+        "title": "Remove By Name",
+        "type": "string"
+      },
+      "disablePlugin": {
+        "type": "boolean",
+        "title": "Disable Plugin",
+        "description": "If true, the plugin will remove all accessories and not load the plugin on restart."
+      },
+      "wemoClient": {
+        "title": "Network Settings",
+        "type": "object",
+        "properties": {
+          "listen_interface": {
+            "type": "string",
+            "title": "Listener Interface",
+            "description": "This can be used to specify which network interface to listen on. If blank then by default the server will listen on all interfaces, however, Wemo subscription messages will only be sent to the first non-internal IPv4 address returned by os.networkInterfaces() after being sorted by compatible network which may or may not be what you want."
+          },
+          "port": {
+            "type": "integer",
+            "title": "Listener Port",
+            "description": "This can be used to specify a port to bind to for listening to UPnP events. If blank or 0 then the plugin will listen on any available randomly selected port.",
+            "placeholder": 0
+          },
+          "discover_opts": {
+            "type": "object",
+            "properties": {
+              "interfaces": {
+                "type": "string",
+                "title": "SSDP Interfaces",
+                "description": "A comma separated list of interfaces to explicitly bind to. If blank then bind to all available interfaces."
+              },
+              "explicitSocketBind": {
+                "type": "boolean",
+                "title": "SSDP Explicit Socket Bind",
+                "description": "Bind sockets to each discovered interface explicitly instead of relying on the system. Might help with issues with multiple NICs."
+              }
+            }
+          }
+        }
+      },
+      "makerTypes": {
+        "title": "Wemo Makers",
+        "description": "Optional settings for Wemo Makers.",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
+            "serialNumber": {
+              "type": "string",
+              "title": "Serial Number"
+            },
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.makerTypes && model.makerTypes[arrayIndices] && model.makerTypes[arrayIndices].serialNumber && model.makerTypes[arrayIndices].serialNumber.length > 0);"
+              }
+            },
+            "makerType": {
+              "type": "string",
+              "title": "Show As",
+              "oneOf": [
+                {
+                  "title": "Garage Door",
+                  "enum": ["garageDoor"]
+                },
+                {
+                  "title": "Switch (with contact sensor if exists)",
+                  "enum": ["switch"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.makerTypes && model.makerTypes[arrayIndices] && model.makerTypes[arrayIndices].serialNumber && model.makerTypes[arrayIndices].serialNumber.length > 0 && !model.makerTypes[arrayIndices].ignoreDevice);"
+              }
+            },
+            "makerTimer": {
+              "type": "integer",
+              "title": "Open/Close Time",
+              "description": "The time in seconds for how long it takes the garage door to open/close. Must be 1 or more.",
+              "placeholder": 20,
+              "minimum": 1,
+              "condition": {
+                "functionBody": "return (model.makerTypes && model.makerTypes[arrayIndices] && model.makerTypes[arrayIndices].makerType === 'garageDoor' && !model.makerTypes[arrayIndices].ignoreDevice);"
+              }
+            },
+            "reversePolarity": {
+              "type": "boolean",
+              "title": "Reverse Polarity",
+              "description": "If true, the plugin will reverse the 'Open' and 'Closed' HomeKit states.",
+              "condition": {
+                "functionBody": "return (model.makerTypes && model.makerTypes[arrayIndices] && model.makerTypes[arrayIndices].makerType === 'switch' && !model.makerTypes[arrayIndices].ignoreDevice);"
+              }
+            },
+            "manualIP": {
+              "type": "string",
+              "title": "Manual IP/URL",
+              "placeholder": "192.168.1.20",
+              "description": "If the plugin cannot discover this device you can specify its IP and the plugin will try to determine the correct port. You can also specify a full address to specify both the IP and the port, e.g. http://192.168.1.1:49153/setup.xml.",
+              "condition": {
+                "functionBody": "return (model.makerTypes && model.makerTypes[arrayIndices] && model.makerTypes[arrayIndices].serialNumber && model.makerTypes[arrayIndices].serialNumber.length > 0 && !model.makerTypes[arrayIndices].ignoreDevice);"
+              }
+            },
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.makerTypes && model.makerTypes[arrayIndices] && model.makerTypes[arrayIndices].serialNumber && model.makerTypes[arrayIndices].serialNumber.length > 0 && !model.makerTypes[arrayIndices].ignoreDevice);"
+              }
+            }
+          }
+        }
+      },
+      "wemoInsights": {
+        "title": "Wemo Insights",
+        "description": "Optional settings for Wemo Insights.",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
+            "serialNumber": {
+              "type": "string",
+              "title": "Serial Number"
+            },
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0);"
+              }
+            },
+            "showTodayTC": {
+              "type": "boolean",
+              "title": "Show Today's Consumption",
+              "description": "If true, today's consumption will show in the Eve app's Total Consumption field instead of the cumulative value.",
+              "condition": {
+                "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0 && !model.wemoInsights[arrayIndices].ignoreDevice);"
+              }
+            },
+            "wattDiff": {
+              "type": "integer",
+              "title": "Limit Wattage Logging (by wattage)",
+              "description": "The plugin will not log device wattage if the difference from the previous value is less than this number. Must be 1 or more.",
+              "placeholder": 1,
+              "minimum": 1,
+              "condition": {
+                "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0 && !model.wemoInsights[arrayIndices].ignoreDevice);"
+              }
+            },
+            "timeDiff": {
+              "type": "integer",
+              "title": "Limit Wattage Logging (by time)",
+              "description": "The plugin will not log device wattage if the time difference (in seconds) from the previous value is less than this number. Must be 1 or more.",
+              "placeholder": 1,
+              "minimum": 1,
+              "condition": {
+                "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0 && !model.wemoInsights[arrayIndices].ignoreDevice);"
+              }
+            },
+            "showAs": {
+              "type": "string",
+              "title": "Show As",
+              "oneOf": [
+                {
+                  "title": "Outlet (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Switch",
+                  "enum": ["switch"]
+                },
+                {
+                  "title": "Air Purifier",
+                  "enum": ["purifier"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0 && !model.wemoInsights[arrayIndices].ignoreDevice);"
+              }
+            },
+            "manualIP": {
+              "type": "string",
+              "title": "Manual IP/URL",
+              "placeholder": "192.168.1.20",
+              "description": "If the plugin cannot discover this device you can specify its IP and the plugin will try to determine the correct port. You can also specify a full address to specify both the IP and the port, e.g. http://192.168.1.1:49153/setup.xml.",
+              "condition": {
+                "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0 && !model.wemoInsights[arrayIndices].ignoreDevice);"
+              }
+            },
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0 && !model.wemoInsights[arrayIndices].ignoreDevice);"
+              }
+            }
+          }
+        }
+      },
+      "wemoLights": {
+        "title": "Wemo Lights",
+        "description": "Optional settings for Wemo Light Switches, Dimmers and Bulbs.",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
+            "serialNumber": {
+              "type": "string",
+              "title": "Serial Number",
+              "description": "In the case of a Wemo Bulb (via Link) please use the device ID of the bulb, not the serial number of the Link."
+            },
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0);"
+              }
+            },
+            "brightnessStep": {
+              "title": "Brightness Step",
+              "type": "integer",
+              "description": "A minimum step for the brightness slider in the Home app. Must be 1 or more.",
+              "placeholder": 1,
+              "minimum": 1,
+              "condition": {
+                "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
+              }
+            },
+            "adaptiveLightingShift": {
+              "title": "Adaptive Lighting Shift",
+              "type": "integer",
+              "description": "The mired for each Adaptive Lighting update will be increased by this value, making the light appear warmer. Set to -1 to remove Adaptive Lighting feature. Must be -1 or more.",
+              "placeholder": 0,
+              "minimum": -1,
+              "condition": {
+                "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
+              }
+            },
+            "transitionTime": {
+              "title": "Transition Time",
+              "type": "integer",
+              "description": "Transition time (in seconds?) for brightness and colour temperature changes. Applies to Wemo Bulb (not Dimmer). Must be 0 or more.",
+              "placeholder": 0,
+              "minimum": 0,
+              "condition": {
+                "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
+              }
+            },
+            "pollingInterval": {
+              "type": "integer",
+              "title": "Polling Interval",
+              "description": "Newer models of the Wemo Dimmer may require polling (in seconds) for brightness updates. Must be 15 or more.",
+              "placeholder": 30,
+              "minimum": 15,
+              "condition": {
+                "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
+              }
+            },
+            "manualIP": {
+              "type": "string",
+              "title": "Manual IP/URL",
+              "placeholder": "192.168.1.20",
+              "description": "If the plugin cannot discover this device you can specify its IP and the plugin will try to determine the correct port. You can also specify a full address to specify both the IP and the port, e.g. http://192.168.1.1:49153/setup.xml.",
+              "condition": {
+                "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
+              }
+            },
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
+              }
+            }
+          }
+        }
+      },
+      "wemoMotions": {
+        "title": "Wemo Motions",
+        "description": "Optional settings for Wemo Motions.",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
+            "serialNumber": {
+              "type": "string",
+              "title": "Serial Number"
+            },
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.wemoMotions && model.wemoMotions[arrayIndices] && model.wemoMotions[arrayIndices].serialNumber && model.wemoMotions[arrayIndices].serialNumber.length > 0);"
+              }
+            },
+            "noMotionTimer": {
+              "type": "integer",
+              "title": "No Motion Timer",
+              "description": "A timer (in seconds) for how long after motion is not detected that the state is changed.",
+              "placeholder": 60,
+              "minimum": 0,
+              "condition": {
+                "functionBody": "return (model.wemoMotions && model.wemoMotions[arrayIndices] && model.wemoMotions[arrayIndices].serialNumber && model.wemoMotions[arrayIndices].serialNumber.length > 0 && !model.wemoMotions[arrayIndices].ignoreDevice);"
+              }
+            },
+            "manualIP": {
+              "type": "string",
+              "title": "Manual IP/URL",
+              "placeholder": "192.168.1.20",
+              "description": "If the plugin cannot discover this device you can specify its IP and the plugin will try to determine the correct port. You can also specify a full address to specify both the IP and the port, e.g. http://192.168.1.1:49153/setup.xml.",
+              "condition": {
+                "functionBody": "return (model.wemoMotions && model.wemoMotions[arrayIndices] && model.wemoMotions[arrayIndices].serialNumber && model.wemoMotions[arrayIndices].serialNumber.length > 0 && !model.wemoMotions[arrayIndices].ignoreDevice);"
+              }
+            },
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.wemoMotions && model.wemoMotions[arrayIndices] && model.wemoMotions[arrayIndices].serialNumber && model.wemoMotions[arrayIndices].serialNumber.length > 0 && !model.wemoMotions[arrayIndices].ignoreDevice);"
+              }
+            }
+          }
+        }
+      },
+      "wemoOutlets": {
+        "title": "Wemo Outlets",
+        "description": "Optional settings for Wemo WiFi Outlets and Outdoor Plugs.",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
+            "serialNumber": {
+              "type": "string",
+              "title": "Serial Number"
+            },
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.wemoOutlets && model.wemoOutlets[arrayIndices] && model.wemoOutlets[arrayIndices].serialNumber && model.wemoOutlets[arrayIndices].serialNumber.length > 0);"
+              }
+            },
+            "showAs": {
+              "type": "string",
+              "title": "Show As",
+              "oneOf": [
+                {
+                  "title": "Outlet (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Switch",
+                  "enum": ["switch"]
+                },
+                {
+                  "title": "Air Purifier",
+                  "enum": ["purifier"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.wemoOutlets && model.wemoOutlets[arrayIndices] && model.wemoOutlets[arrayIndices].serialNumber && model.wemoOutlets[arrayIndices].serialNumber.length > 0 && !model.wemoOutlets[arrayIndices].ignoreDevice);"
+              }
+            },
+            "manualIP": {
+              "type": "string",
+              "title": "Manual IP/URL",
+              "placeholder": "192.168.1.20",
+              "description": "If the plugin cannot discover this device you can specify its IP and the plugin will try to determine the correct port. You can also specify a full address to specify both the IP and the port, e.g. http://192.168.1.1:49153/setup.xml.",
+              "condition": {
+                "functionBody": "return (model.wemoOutlets && model.wemoOutlets[arrayIndices] && model.wemoOutlets[arrayIndices].serialNumber && model.wemoOutlets[arrayIndices].serialNumber.length > 0 && !model.wemoOutlets[arrayIndices].ignoreDevice);"
+              }
+            },
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.wemoOutlets && model.wemoOutlets[arrayIndices] && model.wemoOutlets[arrayIndices].serialNumber && model.wemoOutlets[arrayIndices].serialNumber.length > 0 && !model.wemoOutlets[arrayIndices].ignoreDevice);"
+              }
+            }
+          }
+        }
+      },
+      "wemoOthers": {
+        "title": "Wemo Others",
+        "description": "Optional settings for Wemo Heater, Dehumidifier, Air Purifier and Crockpot.",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
+            "serialNumber": {
+              "type": "string",
+              "title": "Serial Number"
+            },
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.wemoOthers && model.wemoOthers[arrayIndices] && model.wemoOthers[arrayIndices].serialNumber && model.wemoOthers[arrayIndices].serialNumber.length > 0);"
+              }
+            },
+            "manualIP": {
+              "type": "string",
+              "title": "Manual IP/URL",
+              "placeholder": "192.168.1.20",
+              "description": "If the plugin cannot discover this device you can specify its IP and the plugin will try to determine the correct port. You can also specify a full address to specify both the IP and the port, e.g. http://192.168.1.1:49153/setup.xml.",
+              "condition": {
+                "functionBody": "return (model.wemoOthers && model.wemoOthers[arrayIndices] && model.wemoOthers[arrayIndices].serialNumber && model.wemoOthers[arrayIndices].serialNumber.length > 0 && !model.wemoOthers[arrayIndices].ignoreDevice);"
+              }
+            },
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.wemoOthers && model.wemoOthers[arrayIndices] && model.wemoOthers[arrayIndices].serialNumber && model.wemoOthers[arrayIndices].serialNumber.length > 0 && !model.wemoOthers[arrayIndices].ignoreDevice);"
+              }
+            }
+          }
+        }
+      },
+      "manualDevices": {
+        "title": "Manual Devices",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "title": "Device IP/URL",
+          "placeholder": "192.168.1.20",
+          "description": "Specify a device's IP and the plugin will try to determine the correct port. You can also specify a full address to specify both the IP and the port, e.g. http://192.168.1.1:49153/setup.xml."
+        }
+      },
+      "ignoredDevices": {
+        "title": "Ignored Devices",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "title": "Serial Number",
+          "description": "The serial number of the device that should be ignored. In the case of a Wemo Bulb (via Link) please use the device ID of the bulb, not the serial number of the Link."
+        }
       }
-    ]
+    }
   },
   "layout": [
     {
-      "type": "flex",
-      "flex-flow": "row wrap",
+      "type": "fieldset",
+      "title": "Optional Settings",
+      "description": "Optional settings for the plugin, including discovery, network and global logging settings.",
+      "expandable": true,
+      "items": [
+        "mode",
+        "discoveryInterval",
+        "wemoClient.listen_interface",
+        "wemoClient.port",
+        "wemoClient.discover_opts.interfaces",
+        "wemoClient.discover_opts.explicitSocketBind",
+        "disableDeviceLogging",
+        "debug",
+        "disablePlugin"
+      ]
+    },
+    {
+      "key": "makerTypes",
+      "expandable": true,
+      "title": "Wemo Makers",
+      "description": "Optional settings for Wemo Makers.",
+      "add": "Add Another Device",
+      "type": "array",
       "items": [
         {
-          "key": "name",
-          "type": "name"
-        },
-        {
-          "key": "description",
-          "type": "description"
+          "type": "fieldset",
+          "items": [
+            "makerTypes[].label",
+            "makerTypes[].serialNumber",
+            "makerTypes[].ignoreDevice",
+            "makerTypes[].makerType",
+            "makerTypes[].makerTimer",
+            "makerTypes[].reversePolarity",
+            "makerTypes[].manualIP",
+            "makerTypes[].overrideLogging"
+          ]
         }
       ]
     },
     {
-      "type": "flex",
-      "flex-flow": "row wrap",
+      "key": "wemoInsights",
+      "expandable": true,
+      "title": "Wemo Insights",
+      "description": "Optional settings for Wemo Insights.",
+      "add": "Add Another Device",
+      "type": "array",
       "items": [
         {
-          "key": "ip",
-          "type": "ip"
-        },
-        {
-          "key": "port",
-          "type": "port"
+          "type": "fieldset",
+          "items": [
+            "wemoInsights[].label",
+            "wemoInsights[].serialNumber",
+            "wemoInsights[].ignoreDevice",
+            "wemoInsights[].showTodayTC",
+            "wemoInsights[].wattDiff",
+            "wemoInsights[].timeDiff",
+            "wemoInsights[].showAs",
+            "wemoInsights[].manualIP",
+            "wemoInsights[].overrideLogging"
+          ]
         }
       ]
     },
     {
-      "type": "flex",
-      "flex-flow": "row wrap",
+      "key": "wemoLights",
+      "expandable": true,
+      "title": "Wemo Lights",
+      "description": "Optional settings for Wemo Light Switches, Dimmers and Bulbs.",
+      "add": "Add Another Device",
+      "type": "array",
       "items": [
-        "wemo_name"
+        {
+          "type": "fieldset",
+          "items": [
+            "wemoLights[].label",
+            "wemoLights[].serialNumber",
+            "wemoLights[].ignoreDevice",
+            "wemoLights[].brightnessStep",
+            "wemoLights[].adaptiveLightingShift",
+            "wemoLights[].transitionTime",
+            "wemoLights[].pollingInterval",
+            "wemoLights[].manualIP",
+            "wemoLights[].overrideLogging"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wemoMotions",
+      "expandable": true,
+      "title": "Wemo Motions",
+      "description": "Optional settings for Wemo Motions.",
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "wemoMotions[].label",
+            "wemoMotions[].serialNumber",
+            "wemoMotions[].ignoreDevice",
+            "wemoMotions[].noMotionTimer",
+            "wemoMotions[].manualIP",
+            "wemoMotions[].overrideLogging"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wemoOutlets",
+      "expandable": true,
+      "title": "Wemo Outlets",
+      "description": "Optional settings for Wemo WiFi Outlets and Outdoor Plugs.",
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "wemoOutlets[].label",
+            "wemoOutlets[].serialNumber",
+            "wemoOutlets[].ignoreDevice",
+            "wemoOutlets[].showAs",
+            "wemoOutlets[].manualIP",
+            "wemoOutlets[].overrideLogging"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wemoOthers",
+      "expandable": true,
+      "title": "Wemo Others",
+      "description": "Optional settings for Wemo Heater, Dehumidifier, Air Purifier and Crockpot.",
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "wemoOthers[].label",
+            "wemoOthers[].serialNumber",
+            "wemoOthers[].ignoreDevice",
+            "wemoOthers[].manualIP",
+            "wemoOthers[].overrideLogging"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "manualDevices",
+      "expandable": true,
+      "title": "Manual Devices",
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": ["manualDevices[]"]
+        }
+      ]
+    },
+    {
+      "key": "ignoredDevices",
+      "expandable": true,
+      "title": "Ignored Devices",
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": ["ignoredDevices[]"]
+        }
       ]
     }
   ]
