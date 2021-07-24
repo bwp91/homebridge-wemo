@@ -2,6 +2,13 @@
 
 All notable changes to this homebridge-wemo will be documented in this file.
 
+## 3.4.0 (2021-07-24)
+
+### Changed
+
+- Plugin name from `homebridge-platform-wemo` to `homebridge-wemo`
+- Plugin alias from `BelkinWeMo` to `Wemo`
+
 ## 3.3.0 (2021-07-22)
 
 ### Added
