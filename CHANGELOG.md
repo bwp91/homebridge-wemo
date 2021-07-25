@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to this homebridge-wemo will be documented in this file.
+All notable changes to homebridge-wemo will be documented in this file.
 
 ## 3.4.1 (2021-07-24)
 
