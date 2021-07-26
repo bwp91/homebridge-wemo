@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Fixed
+
+- An issue preventing Wemo Outlets being exposed as `Switch` or `AirPurifier` types
+
 ## 3.4.1 (2021-07-24)
 
 ### Fixed
@@ -29,7 +35,7 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 - **Plugin UI**
   - `label` field now appears first in the device configuration sections
-  - 'Network Settings' moved inside 'Optional Settings' 
+  - 'Network Settings' moved inside 'Optional Settings'
 
 ### Fixed
 
