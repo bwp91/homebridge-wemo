@@ -2,7 +2,7 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## BETA
+## 3.4.2 (2021-07-27)
 
 ### Fixed
 
