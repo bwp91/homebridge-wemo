@@ -19,6 +19,7 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 - ⚠️ `ignoredDevices[]` configuration entry
   - Devices can be ignored by entering a serial number in the relevant device section and ticking 'Hide From HomeKit'
+  - It is recommended to set up your ignored devices **before** updating to avoid losing your list of serial numbers
 
 ## 3.4.2 (2021-07-27)
 
