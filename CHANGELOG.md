@@ -2,6 +2,19 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Added
+
+- **Configuration**
+  - Plugin will now check for duplicate device ID entries in the config and ignore them
+  
+### Changed
+
+- ⚠️ **Platform Versions**
+  - Recommended node version bumped to v14.17.4
+  - Recommended homebridge version bumped to v1.3.4
+
 ## 3.4.2 (2021-07-27)
 
 ### Fixed
