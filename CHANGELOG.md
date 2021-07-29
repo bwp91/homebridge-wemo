@@ -8,7 +8,7 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 - **Configuration**
   - Plugin will now check for duplicate device ID entries in the config and ignore them
-  
+
 ### Changed
 
 - ⚠️ **Platform Versions**
