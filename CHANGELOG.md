@@ -15,6 +15,11 @@ All notable changes to homebridge-wemo will be documented in this file.
   - Recommended node version bumped to v14.17.4
   - Recommended homebridge version bumped to v1.3.4
 
+### Removed
+
+- ⚠️ `ignoredDevices[]` configuration entry
+  - Devices can be ignored by entering a serial number in the relevant device section and ticking 'Hide From HomeKit'
+
 ## 3.4.2 (2021-07-27)
 
 ### Fixed
