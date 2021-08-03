@@ -2,6 +2,27 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Added
+
+- **New Mode: `semi`**
+  - This mode will attempt to auto discover the devices you have configured in the settings and will ignore any discovered devices that aren't configured. This mode will also initialise manual devices you have configured.
+  - In this mode, the plugin will skip the discovery process whilst all devices have been found and haven't reported an error
+- **Wemo Links**
+  - New configuration section for Wemo Links, with options to manually specify an IP/URL and ignore the device (+ all subdevices)
+
+### Changed
+
+- **Manual Mode**
+  - In `manual` mode, the plugin will skip the discovery process whilst all devices have been found and haven't reported an error
+- **Logging**
+  - The dreaded `awaiting (re)connection` will now show as one log entry with a list of erroneous devices
+- **Backend**
+  - Discovery increment count now resets from 3 to 0 to avoid manipulating large numbers over time
+  - Reduced upnp subscription time from 150 seconds to 120
+  - Some code refactoring
+
 ## 4.0.0 (2021-07-29)
 
 ### Added
