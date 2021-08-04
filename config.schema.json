@@ -666,7 +666,7 @@
         }
       },
       "manualDevices": {
-        "title": "Manual Devices",
+        "title": "Manual Devices (Deprecated)",
         "type": "array",
         "items": {
           "type": "string",
@@ -850,7 +850,8 @@
     {
       "key": "manualDevices",
       "expandable": true,
-      "title": "Manual Devices",
+      "title": "Manual Devices (Deprecated)",
+      "description": "You should not use this section to add new entries. Move your existing entries from here to the appropriate section above.",
       "add": "Add Another Device",
       "type": "array",
       "items": [
