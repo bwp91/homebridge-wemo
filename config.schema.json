@@ -560,24 +560,6 @@
                 "functionBody": "return (model.wemoMotions && model.wemoMotions[arrayIndices] && model.wemoMotions[arrayIndices].serialNumber && model.wemoMotions[arrayIndices].serialNumber.length > 0 && !model.wemoMotions[arrayIndices].ignoreDevice);"
               }
             },
-            "listenerType": {
-              "type": "string",
-              "title": "Listener Type",
-              "oneOf": [
-                {
-                  "title": "UPnP (Default)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "HTTP Polling",
-                  "enum": ["http"]
-                }
-              ],
-              "description": "UPnP allows for real-time notifications when your device is controlled, but can be problematic if your device is on a different IP network/VLAN to Homebridge. In this case you should use HTTP polling.",
-              "condition": {
-                "functionBody": "return (model.wemoMotions && model.wemoMotions[arrayIndices] && model.wemoMotions[arrayIndices].serialNumber && model.wemoMotions[arrayIndices].serialNumber.length > 0 && !model.wemoMotions[arrayIndices].ignoreDevice);"
-              }
-            },
             "overrideLogging": {
               "type": "string",
               "title": "Override Logging Setting",
@@ -928,7 +910,6 @@
             "wemoMotions[].ignoreDevice",
             "wemoMotions[].noMotionTimer",
             "wemoMotions[].manualIP",
-            "wemoMotions[].listenerType",
             "wemoMotions[].overrideLogging"
           ]
         }
