@@ -35,10 +35,17 @@
       },
       "discoveryInterval": {
         "type": "integer",
-        "title": "Refresh Interval",
-        "description": "An interval (in seconds) in which the plugin will initally find and continually check device connections. Must be 15 or more.",
+        "title": "Discovery Interval",
+        "description": "An interval (in seconds) in which the plugin will broadcast on your network to initally find devices and repair connection errors. Must be 15 or more.",
         "placeholder": 30,
         "minimum": 15
+      },
+      "pollingInterval": {
+        "type": "integer",
+        "title": "Polling Interval",
+        "description": "An interval (in seconds) in which the plugin will request status updates for devices that don't support UPnP or have it manually disabled. Must be 30 or more.",
+        "placeholder": 60,
+        "minimum": 30
       },
       "disableDeviceLogging": {
         "type": "boolean",
@@ -396,16 +403,6 @@
               "description": "Transition time (in seconds?) for brightness and colour temperature changes. Applies to Wemo Bulb (not Dimmer). Must be 0 or more.",
               "placeholder": 0,
               "minimum": 0,
-              "condition": {
-                "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
-              }
-            },
-            "pollingInterval": {
-              "type": "integer",
-              "title": "Polling Interval",
-              "description": "Newer models of the Wemo Dimmer may require polling (in seconds) for brightness updates. Must be 15 or more.",
-              "placeholder": 30,
-              "minimum": 15,
               "condition": {
                 "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
               }
@@ -812,6 +809,7 @@
       "items": [
         "mode",
         "discoveryInterval",
+        "pollingInterval",
         "wemoClient.listen_interface",
         "wemoClient.port",
         "wemoClient.discover_opts.interfaces",
@@ -887,7 +885,6 @@
             "wemoLights[].brightnessStep",
             "wemoLights[].adaptiveLightingShift",
             "wemoLights[].transitionTime",
-            "wemoLights[].pollingInterval",
             "wemoLights[].manualIP",
             "wemoLights[].listenerType",
             "wemoLights[].overrideLogging"
