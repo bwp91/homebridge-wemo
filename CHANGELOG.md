@@ -9,16 +9,18 @@ All notable changes to homebridge-wemo will be documented in this file.
 - **New Mode: `semi`**
   - This mode will attempt to auto discover the devices you have configured in the settings and will ignore any discovered devices that aren't configured. This mode will also initialise manual devices you have configured.
   - In this mode, the plugin will skip the discovery process whilst all devices have been found and haven't reported an error
-- **Device Listener Type**
-  - Option to choose between UPnP or HTTP polling for external changes (per device)
+- **UPnP & HTTP Polling Options**
+  - Global option to disable UPnP
     - UPnP offers real-time notifications to the plugin on external changes, but can be problematic if your devices are on a different ip network or VLAN to your Homebridge instance
-    - HTTP polling can be used when UPnP is problematic, the polling interval can be set with a new 'Polling Interval' option in 'Optional Settings'
+    - HTTP Polling will be used if UPnP has been disabled
+  - Option to override choice of UPnP or HTTP polling per device
+  - HTTP polling interval configuration option
 - **Wemo Links**
   - New configuration section for Wemo Links, with options to manually specify an IP/URL and ignore the device (+ all subdevices)
 
 ### Changed
 
-- **Device Connection**
+- **UPnP & HTTP Polling**
   - Controlling a device will be attempted regardless of the UPnP connection status if the plugin has cached IP and port info
   - When the UPnP connection fails and reconnects, the plugin will no longer reinitialise the device as new. Instead, the subscriptions will restart with any updated IP and port information.
   - UPnP subscription `setTimeout`s will be cancelled on Homebridge shutdown event
