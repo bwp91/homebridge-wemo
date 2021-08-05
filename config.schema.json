@@ -20,15 +20,15 @@
         "default": "auto",
         "oneOf": [
           {
-            "title": "Auto (Discover All + Manual Devices)",
+            "title": "Auto (Discover All & Manual Devices)",
             "enum": ["auto"]
           },
           {
-            "title": "Semi (Discover Configured + Manual Devices)",
+            "title": "Semi (Discover Configured & Manual Devices)",
             "enum": ["semi"]
           },
           {
-            "title": "Manual (Only Manual Devices)",
+            "title": "Manual (Discovery Only Manual Devices)",
             "enum": ["manual"]
           }
         ]
