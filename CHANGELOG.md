@@ -9,9 +9,10 @@ All notable changes to homebridge-wemo will be documented in this file.
 - **New Mode: `semi`**
   - This mode will attempt to auto discover the devices you have configured in the settings and will ignore any discovered devices that aren't configured. This mode will also initialise manual devices you have configured.
   - In this mode, the plugin will skip the discovery process whilst all devices have been found and haven't reported an error
-- **All Devices**
-  - Option to disable UPnP connection
-    - This is used for notifications when a device is controlled externally. Disabling UPnP can reduce network traffic, but means that HomeKit may not show the correct state of your device.
+- **Device Listener Type**
+  - Option to choose between UPnP or HTTP polling for external changes (per device)
+    - UPnP offers real-time notifications to the plugin on external changes, but can be problematic if your devices are on a different ip network or VLAN to your Homebridge instance
+    - HTTP polling can be used when UPnP is problematic, the polling interval can be set with a new 'Polling Interval' option in 'Optional Settings'
 - **Wemo Links**
   - New configuration section for Wemo Links, with options to manually specify an IP/URL and ignore the device (+ all subdevices)
 
@@ -24,7 +25,15 @@ All notable changes to homebridge-wemo will be documented in this file.
 - **Manual Mode**
   - In `manual` mode, the plugin will skip the discovery process whilst all devices have been found and haven't reported an error
 - **Logging**
-  - The dreaded `awaiting (re)connection` will now show as one log entry with a list of erroneous devices
+  - The dreaded `awaiting (re)connection` repeated message has been changed
+    - The plugin will continue to repeatedly log any devices that are awaiting initial discovery on plugin startup
+    - If an already-discovered device reports a UPnP error in due course, the plugin will log the error **once** but not repeatedly
+- **Wemo Dimmers**
+  - Some newer models of the Wemo Dimmer maybe don't support UPnP?
+    - The plugin will no longer automatically HTTP poll newer versions of these dimmer devices
+    - To re-enable the polling, set up an entry for your device in the configuration and change the 'Listener Type' to 'HTTP'
+- **Wemo Crockpot**
+  - The polling interval will now adhere to the global 'Polling Interval' setting (rather than hard-coded 30 seconds)
 - **Backend**
   - Discovery increment count now resets from 3 to 0 to avoid manipulating large numbers over time
   - Reduced UPnP subscription time from 150 to 120 seconds
