@@ -10,20 +10,22 @@ All notable changes to homebridge-wemo will be documented in this file.
   - This mode will attempt to auto discover the devices you have configured in the settings and will ignore any discovered devices that aren't configured. This mode will also initialise manual devices you have configured.
   - In this mode, the plugin will skip the discovery process whilst all devices have been found and haven't reported an error
 - **All Devices**
-  - Option to disable UPNP connection
-    - This is used for notifications when a device is controlled externally. Disabling UPNP can reduce network traffic, but means that HomeKit may not show the correct state of your device.
+  - Option to disable UPnP connection
+    - This is used for notifications when a device is controlled externally. Disabling UPnP can reduce network traffic, but means that HomeKit may not show the correct state of your device.
 - **Wemo Links**
   - New configuration section for Wemo Links, with options to manually specify an IP/URL and ignore the device (+ all subdevices)
 
 ### Changed
 
+- **UPnP Connection**
+  - When the connection fails and reconnects, the plugin will no longer reinitialise the device as new. Instead, the subscriptions will simply continue with potentially updated IP and port information.
 - **Manual Mode**
   - In `manual` mode, the plugin will skip the discovery process whilst all devices have been found and haven't reported an error
 - **Logging**
   - The dreaded `awaiting (re)connection` will now show as one log entry with a list of erroneous devices
 - **Backend**
   - Discovery increment count now resets from 3 to 0 to avoid manipulating large numbers over time
-  - Reduced upnp subscription time from 150 seconds to 120
+  - Reduced upnp subscription time from 150 to 120 seconds
   - Some code refactoring
 
 ### Fixed
