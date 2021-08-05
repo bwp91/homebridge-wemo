@@ -169,10 +169,20 @@
                 "functionBody": "return (model.makerTypes && model.makerTypes[arrayIndices] && model.makerTypes[arrayIndices].serialNumber && model.makerTypes[arrayIndices].serialNumber.length > 0 && !model.makerTypes[arrayIndices].ignoreDevice);"
               }
             },
-            "disableUPNP": {
-              "type": "boolean",
-              "title": "Disable UPNP",
-              "description": "UPNP is used for notifications when a device is controlled outside of HomeKit. Disabling this can reduce network traffic but means HomeKit may not show the correct state of your device.",
+            "listenerType": {
+              "type": "string",
+              "title": "Listener Type",
+              "oneOf": [
+                {
+                  "title": "UPnP (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "HTTP Polling",
+                  "enum": ["http"]
+                }
+              ],
+              "description": "UPnP allows for real-time notifications when your device is controlled, but can be problematic if your device is on a different IP network/VLAN to Homebridge. In this case you should use HTTP polling.",
               "condition": {
                 "functionBody": "return (model.makerTypes && model.makerTypes[arrayIndices] && model.makerTypes[arrayIndices].serialNumber && model.makerTypes[arrayIndices].serialNumber.length > 0 && !model.makerTypes[arrayIndices].ignoreDevice);"
               }
@@ -288,10 +298,20 @@
                 "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0 && !model.wemoInsights[arrayIndices].ignoreDevice);"
               }
             },
-            "disableUPNP": {
-              "type": "boolean",
-              "title": "Disable UPNP",
-              "description": "UPNP is used for notifications when a device is controlled outside of HomeKit. Disabling this can reduce network traffic but means HomeKit may not show the correct state of your device.",
+            "listenerType": {
+              "type": "string",
+              "title": "Listener Type",
+              "oneOf": [
+                {
+                  "title": "UPnP (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "HTTP Polling",
+                  "enum": ["http"]
+                }
+              ],
+              "description": "UPnP allows for real-time notifications when your device is controlled, but can be problematic if your device is on a different IP network/VLAN to Homebridge. In this case you should use HTTP polling.",
               "condition": {
                 "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0 && !model.wemoInsights[arrayIndices].ignoreDevice);"
               }
@@ -399,10 +419,20 @@
                 "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
               }
             },
-            "disableUPNP": {
-              "type": "boolean",
-              "title": "Disable UPNP",
-              "description": "UPNP is used for notifications when a device is controlled outside of HomeKit. Disabling this can reduce network traffic but means HomeKit may not show the correct state of your device.",
+            "listenerType": {
+              "type": "string",
+              "title": "Listener Type",
+              "oneOf": [
+                {
+                  "title": "UPnP (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "HTTP Polling",
+                  "enum": ["http"]
+                }
+              ],
+              "description": "UPnP allows for real-time notifications when your device is controlled, but can be problematic if your device is on a different IP network/VLAN to Homebridge. In this case you should use HTTP polling.",
               "condition": {
                 "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
               }
@@ -469,10 +499,20 @@
                 "functionBody": "return (model.wemoLinks && model.wemoLinks[arrayIndices] && model.wemoLinks[arrayIndices].serialNumber && model.wemoLinks[arrayIndices].serialNumber.length > 0 && !model.wemoLinks[arrayIndices].ignoreDevice);"
               }
             },
-            "disableUPNP": {
-              "type": "boolean",
-              "title": "Disable UPNP",
-              "description": "UPNP is used for notifications when a device is controlled outside of HomeKit. Disabling this can reduce network traffic but means HomeKit may not show the correct state of your device.",
+            "listenerType": {
+              "type": "string",
+              "title": "Listener Type",
+              "oneOf": [
+                {
+                  "title": "UPnP (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "HTTP Polling",
+                  "enum": ["http"]
+                }
+              ],
+              "description": "UPnP allows for real-time notifications when your device is controlled, but can be problematic if your device is on a different IP network/VLAN to Homebridge. In this case you should use HTTP polling.",
               "condition": {
                 "functionBody": "return (model.wemoLinks && model.wemoLinks[arrayIndices] && model.wemoLinks[arrayIndices].serialNumber && model.wemoLinks[arrayIndices].serialNumber.length > 0 && !model.wemoLinks[arrayIndices].ignoreDevice);"
               }
@@ -523,10 +563,20 @@
                 "functionBody": "return (model.wemoMotions && model.wemoMotions[arrayIndices] && model.wemoMotions[arrayIndices].serialNumber && model.wemoMotions[arrayIndices].serialNumber.length > 0 && !model.wemoMotions[arrayIndices].ignoreDevice);"
               }
             },
-            "disableUPNP": {
-              "type": "boolean",
-              "title": "Disable UPNP",
-              "description": "UPNP is used for notifications when a device is controlled outside of HomeKit. Disabling this can reduce network traffic but means HomeKit may not show the correct state of your device.",
+            "listenerType": {
+              "type": "string",
+              "title": "Listener Type",
+              "oneOf": [
+                {
+                  "title": "UPnP (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "HTTP Polling",
+                  "enum": ["http"]
+                }
+              ],
+              "description": "UPnP allows for real-time notifications when your device is controlled, but can be problematic if your device is on a different IP network/VLAN to Homebridge. In this case you should use HTTP polling.",
               "condition": {
                 "functionBody": "return (model.wemoMotions && model.wemoMotions[arrayIndices] && model.wemoMotions[arrayIndices].serialNumber && model.wemoMotions[arrayIndices].serialNumber.length > 0 && !model.wemoMotions[arrayIndices].ignoreDevice);"
               }
@@ -614,10 +664,20 @@
                 "functionBody": "return (model.wemoOutlets && model.wemoOutlets[arrayIndices] && model.wemoOutlets[arrayIndices].serialNumber && model.wemoOutlets[arrayIndices].serialNumber.length > 0 && !model.wemoOutlets[arrayIndices].ignoreDevice);"
               }
             },
-            "disableUPNP": {
-              "type": "boolean",
-              "title": "Disable UPNP",
-              "description": "UPNP is used for notifications when a device is controlled outside of HomeKit. Disabling this can reduce network traffic but means HomeKit may not show the correct state of your device.",
+            "listenerType": {
+              "type": "string",
+              "title": "Listener Type",
+              "oneOf": [
+                {
+                  "title": "UPnP (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "HTTP Polling",
+                  "enum": ["http"]
+                }
+              ],
+              "description": "UPnP allows for real-time notifications when your device is controlled, but can be problematic if your device is on a different IP network/VLAN to Homebridge. In this case you should use HTTP polling.",
               "condition": {
                 "functionBody": "return (model.wemoOutlets && model.wemoOutlets[arrayIndices] && model.wemoOutlets[arrayIndices].serialNumber && model.wemoOutlets[arrayIndices].serialNumber.length > 0 && !model.wemoOutlets[arrayIndices].ignoreDevice);"
               }
@@ -684,10 +744,20 @@
                 "functionBody": "return (model.wemoOthers && model.wemoOthers[arrayIndices] && model.wemoOthers[arrayIndices].serialNumber && model.wemoOthers[arrayIndices].serialNumber.length > 0 && !model.wemoOthers[arrayIndices].ignoreDevice);"
               }
             },
-            "disableUPNP": {
-              "type": "boolean",
-              "title": "Disable UPNP",
-              "description": "UPNP is used for notifications when a device is controlled outside of HomeKit. Disabling this can reduce network traffic but means HomeKit may not show the correct state of your device.",
+            "listenerType": {
+              "type": "string",
+              "title": "Listener Type",
+              "oneOf": [
+                {
+                  "title": "UPnP (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "HTTP Polling",
+                  "enum": ["http"]
+                }
+              ],
+              "description": "UPnP allows for real-time notifications when your device is controlled, but can be problematic if your device is on a different IP network/VLAN to Homebridge. In this case you should use HTTP polling.",
               "condition": {
                 "functionBody": "return (model.wemoOthers && model.wemoOthers[arrayIndices] && model.wemoOthers[arrayIndices].serialNumber && model.wemoOthers[arrayIndices].serialNumber.length > 0 && !model.wemoOthers[arrayIndices].ignoreDevice);"
               }
@@ -769,7 +839,7 @@
             "makerTypes[].makerTimer",
             "makerTypes[].reversePolarity",
             "makerTypes[].manualIP",
-            "makerTypes[].disableUPNP",
+            "makerTypes[].listenerType",
             "makerTypes[].overrideLogging"
           ]
         }
@@ -794,7 +864,7 @@
             "wemoInsights[].timeDiff",
             "wemoInsights[].showAs",
             "wemoInsights[].manualIP",
-            "wemoInsights[].disableUPNP",
+            "wemoInsights[].listenerType",
             "wemoInsights[].overrideLogging"
           ]
         }
@@ -819,7 +889,7 @@
             "wemoLights[].transitionTime",
             "wemoLights[].pollingInterval",
             "wemoLights[].manualIP",
-            "wemoLights[].disableUPNP",
+            "wemoLights[].listenerType",
             "wemoLights[].overrideLogging"
           ]
         }
@@ -839,7 +909,7 @@
             "wemoLinks[].label",
             "wemoLinks[].serialNumber",
             "wemoLinks[].ignoreDevice",
-            "wemoLinks[].disableUPNP",
+            "wemoLinks[].listenerType",
             "wemoLinks[].manualIP"
           ]
         }
@@ -861,7 +931,7 @@
             "wemoMotions[].ignoreDevice",
             "wemoMotions[].noMotionTimer",
             "wemoMotions[].manualIP",
-            "wemoMotions[].disableUPNP",
+            "wemoMotions[].listenerType",
             "wemoMotions[].overrideLogging"
           ]
         }
@@ -883,7 +953,7 @@
             "wemoOutlets[].ignoreDevice",
             "wemoOutlets[].showAs",
             "wemoOutlets[].manualIP",
-            "wemoOutlets[].disableUPNP",
+            "wemoOutlets[].listenerType",
             "wemoOutlets[].overrideLogging"
           ]
         }
@@ -904,7 +974,7 @@
             "wemoOthers[].serialNumber",
             "wemoOthers[].ignoreDevice",
             "wemoOthers[].manualIP",
-            "wemoOthers[].disableUPNP",
+            "wemoOthers[].listenerType",
             "wemoOthers[].overrideLogging"
           ]
         }
