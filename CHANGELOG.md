@@ -17,8 +17,9 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 ### Changed
 
-- **UPnP Connection**
-  - When the connection fails and reconnects, the plugin will no longer reinitialise the device as new. Instead, the subscriptions will simply continue with potentially updated IP and port information.
+- **Device Connection**
+  - Controlling a device will be attempted regardless of the UPnP connection status if the plugin has cached IP and port info
+  - When the UPnP connection fails and reconnects, the plugin will no longer reinitialise the device as new. Instead, the subscriptions will simply continue with any updated IP and port information.
 - **Manual Mode**
   - In `manual` mode, the plugin will skip the discovery process whilst all devices have been found and haven't reported an error
 - **Logging**
