@@ -15,6 +15,8 @@ All notable changes to homebridge-wemo will be documented in this file.
     - HTTP Polling will be used if UPnP has been disabled
   - Option to override choice of UPnP or HTTP polling per device
   - HTTP polling interval configuration option
+- **All Devices**
+  - A log warning and a hap error when controlling a device before it has been initially discovered
 - **Wemo Links**
   - New configuration section for Wemo Links, with options to manually specify an IP/URL and ignore the device (+ all subdevices)
 
