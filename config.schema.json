@@ -40,12 +40,49 @@
         "placeholder": 30,
         "minimum": 15
       },
+      "wemoClient": {
+        "title": "Discovery Settings",
+        "type": "object",
+        "properties": {
+          "listen_interface": {
+            "type": "string",
+            "title": "UPNP Interface",
+            "description": "This can be used to specify which network interface to listen on. If blank then by default the server will listen on all interfaces, however, Wemo subscription messages will only be sent to the first non-internal IPv4 address returned by os.networkInterfaces() after being sorted by compatible network which may or may not be what you want."
+          },
+          "port": {
+            "type": "integer",
+            "title": "UPNP Port",
+            "description": "This can be used to specify a port to bind to for listening to UPnP events. If blank or 0 then the plugin will listen on any available randomly selected port.",
+            "placeholder": 0
+          },
+          "discover_opts": {
+            "type": "object",
+            "properties": {
+              "interfaces": {
+                "type": "string",
+                "title": "Discovery Interfaces",
+                "description": "A comma separated list of interfaces to explicitly bind to. If blank then bind to all available interfaces."
+              },
+              "explicitSocketBind": {
+                "type": "boolean",
+                "title": "Discovery Explicit Socket Bind",
+                "description": "Bind sockets to each discovered interface explicitly instead of relying on the system. Might help with issues with multiple NICs."
+              }
+            }
+          }
+        }
+      },
       "pollingInterval": {
         "type": "integer",
-        "title": "Polling Interval",
+        "title": "HTTP Polling Interval",
         "description": "An interval (in seconds) in which the plugin will request status updates for devices that don't support UPnP or have it manually disabled. Must be 30 or more.",
         "placeholder": 30,
         "minimum": 15
+      },
+      "disableUPNP": {
+        "type": "boolean",
+        "title": "Disable UPnP",
+        "description": "Global disable option for UPnP. HTTP polling will be used instead. This can also be overridden per accessory later in the config."
       },
       "disableDeviceLogging": {
         "type": "boolean",
@@ -75,38 +112,6 @@
         "type": "boolean",
         "title": "Disable Plugin",
         "description": "If true, the plugin will remove all accessories and not load the plugin on restart."
-      },
-      "wemoClient": {
-        "title": "Network Settings",
-        "type": "object",
-        "properties": {
-          "listen_interface": {
-            "type": "string",
-            "title": "Listener Interface",
-            "description": "This can be used to specify which network interface to listen on. If blank then by default the server will listen on all interfaces, however, Wemo subscription messages will only be sent to the first non-internal IPv4 address returned by os.networkInterfaces() after being sorted by compatible network which may or may not be what you want."
-          },
-          "port": {
-            "type": "integer",
-            "title": "Listener Port",
-            "description": "This can be used to specify a port to bind to for listening to UPnP events. If blank or 0 then the plugin will listen on any available randomly selected port.",
-            "placeholder": 0
-          },
-          "discover_opts": {
-            "type": "object",
-            "properties": {
-              "interfaces": {
-                "type": "string",
-                "title": "SSDP Interfaces",
-                "description": "A comma separated list of interfaces to explicitly bind to. If blank then bind to all available interfaces."
-              },
-              "explicitSocketBind": {
-                "type": "boolean",
-                "title": "SSDP Explicit Socket Bind",
-                "description": "Bind sockets to each discovered interface explicitly instead of relying on the system. Might help with issues with multiple NICs."
-              }
-            }
-          }
-        }
       },
       "makerTypes": {
         "title": "Wemo Makers",
@@ -791,11 +796,12 @@
       "items": [
         "mode",
         "discoveryInterval",
-        "pollingInterval",
-        "wemoClient.listen_interface",
-        "wemoClient.port",
         "wemoClient.discover_opts.interfaces",
         "wemoClient.discover_opts.explicitSocketBind",
+        "pollingInterval",
+        "disableUPNP",
+        "wemoClient.listen_interface",
+        "wemoClient.port",
         "disableDeviceLogging",
         "debug",
         "disablePlugin"
