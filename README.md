@@ -23,12 +23,12 @@ Homebridge plugin to control Wemo devices
 - This plugin allows you to view and control your Wemo devices within HomeKit. The plugin:
   - will attempt to discover and control Wemo devices via your local network (UPnP)
   - does not require your Wemo credentials
-- ⚠️ You must make sure your Homebridge instance has an allocated IP from the same IP network or VLAN as your Wemo devices.
 
 ### Prerequisites
 
 - To use this plugin, you will need to already have [Homebridge](https://homebridge.io) (at least v1.3.4) or [HOOBS](https://hoobs.org) (at least v4) installed. Refer to the links for more information and installation instructions.
 - It is recommended to use the current LTS version of Node, currently v14, however Node v12 is also supported.
+- For the UPnP connection, make sure your Homebridge instance has an allocated IP from the same IP network or VLAN as your Wemo devices. Otherwise you should disable the UPnP connection to avoid connection errors.
 
 ### Setup
 
