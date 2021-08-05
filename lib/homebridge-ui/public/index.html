@@ -46,8 +46,12 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">Controllable</th>
-          <td id="controllable"></td>
+          <th scope="row">HTTP Status</th>
+          <td id="http_status"></td>
+        </tr>
+        <tr>
+          <th scope="row">UPnP Status</th>
+          <td id="upnp_status"></td>
         </tr>
         <tr>
           <th scope="row">IP Address</th>
@@ -232,7 +236,10 @@
           const thisAcc = cachedAccessories.find(x => x.context.serialNumber === serialNumber)
           const context = thisAcc.context
           document.getElementById('displayName').innerHTML = thisAcc.displayName
-          document.getElementById('controllable').innerHTML = context.controllable
+          document.getElementById('http_status').innerHTML = context.httpOnline
+            ? '<i class="fas fa-circle mr-1 green-text"></i> Yes'
+            : '<i class="fas fa-circle mr-1 red-text"></i> No'
+          document.getElementById('upnp_status').innerHTML = context.controllable
             ? '<i class="fas fa-circle mr-1 green-text"></i> Yes'
             : '<i class="fas fa-circle mr-1 red-text"></i> No'
           document.getElementById('ipAddress').innerHTML = context.ipAddress || 'N/A'
