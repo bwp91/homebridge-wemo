@@ -29,7 +29,8 @@ All notable changes to homebridge-wemo will be documented in this file.
 - **Logging**
   - The dreaded `awaiting (re)connection` repeated message has been changed
     - The plugin will continue to repeatedly log any devices that are awaiting initial discovery on plugin startup
-    - If an already-discovered device reports a UPnP error in due course, the plugin will log the error **once** but not repeatedly
+    - If an already-discovered device reports a UPnP error in due course, the plugin will log the error **once**
+    - If in plugin debug mode, the plugin will continue to repeatedly log any accessories that are pending some reconnection
 - **Wemo Dimmers**
   - Some newer models of the Wemo Dimmer maybe don't support UPnP?
     - The plugin will no longer automatically HTTP poll newer versions of these dimmer devices
