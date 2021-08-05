@@ -26,6 +26,11 @@ All notable changes to homebridge-wemo will be documented in this file.
   - Reduced upnp subscription time from 150 seconds to 120
   - Some code refactoring
 
+### Fixed
+
+- **Wemo Dimmers**
+  - When turning on, the plugin requests an updated brightness value, which if fails, will no longer affect the outcome of the original switch-on request
+
 ### Deprecated
 
 - Manual devices configuration section
