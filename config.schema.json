@@ -44,8 +44,8 @@
         "type": "integer",
         "title": "Polling Interval",
         "description": "An interval (in seconds) in which the plugin will request status updates for devices that don't support UPnP or have it manually disabled. Must be 30 or more.",
-        "placeholder": 60,
-        "minimum": 30
+        "placeholder": 30,
+        "minimum": 15
       },
       "disableDeviceLogging": {
         "type": "boolean",
