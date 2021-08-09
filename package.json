@@ -1,7 +1,7 @@
 {
   "name": "homebridge-wemo",
   "alias": "Wemo",
-  "version": "4.0.1-beta.12",
+  "version": "4.0.1-beta.13",
   "author": "bwp91",
   "description": "Homebridge plugin to control Wemo devices.",
   "license": "MIT",
