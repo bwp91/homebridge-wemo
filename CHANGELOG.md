@@ -26,6 +26,7 @@ All notable changes to homebridge-wemo will be documented in this file.
   - Controlling a device will be attempted regardless of the UPnP connection status if the plugin has cached IP and port info
   - When the UPnP connection fails and reconnects, the plugin will no longer reinitialise the device as new. Instead, the subscriptions will restart with any updated IP and port information.
   - UPnP subscription `setTimeout`s will be cancelled on Homebridge shutdown event
+  - Plugin will now properly unsubscribe from UPnP events on Homebridge shutdown event
 - **Manual Mode**
   - In `manual` mode, the plugin will skip the discovery process whilst all devices have been found and haven't reported an error
 - **Logging**
