@@ -100,7 +100,7 @@
         "type": "boolean"
       },
       "debugNodeSSDP": {
-        "title": "Debug Fakegato",
+        "title": "Debug NodeSSDP",
         "description": "If true, the included node-ssdp library will debug to the log.",
         "type": "boolean"
       },
