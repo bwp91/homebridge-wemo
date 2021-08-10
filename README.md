@@ -21,9 +21,9 @@ Homebridge plugin to control Wemo devices
 ### Plugin Information
 
 - This plugin allows you to view and control your Wemo devices within HomeKit. The plugin:
-  - does not require your Wemo credentials as uses local network discovery (SSDP)
+  - does not require your Wemo credentials as uses local network discovery (SSDP) and local control
   - will attempt to control your devices via a local HTTP request
-  - will attempt to establish a UPnP connection to your devices to listen for external changes
+  - will attempt to establish a UPnP connection to your devices to listen for external changes (if disabled, HTTP polling is used)
 
 ### Prerequisites
 
