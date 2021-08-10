@@ -75,7 +75,7 @@
       "pollingInterval": {
         "type": "integer",
         "title": "HTTP Polling Interval",
-        "description": "An interval (in seconds) in which the plugin will request status updates for devices that don't support UPnP or have it manually disabled. Must be 30 or more.",
+        "description": "An interval (in seconds) in which the plugin will request status updates for devices that don't support UPnP or have it manually disabled. Must be 15 or more.",
         "placeholder": 30,
         "minimum": 15
       },
