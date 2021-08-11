@@ -2,6 +2,14 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Changed
+
+- **Platform Versions**
+
+  - Recommended node version bumped to v14.17.5
+
 ## 4.1.0 (2021-08-10)
 
 ### Added
