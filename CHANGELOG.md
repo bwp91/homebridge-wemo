@@ -2,13 +2,16 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## BETA
+## 4.1.1 (2021-08-12)
 
 ### Changed
 
 - **Platform Versions**
-
   - Recommended node version bumped to v14.17.5
+
+### Fixed
+
+- Fixed title of `debugNodeSSDP` setting (only visible in HOOBS)
 
 ## 4.1.0 (2021-08-10)
 
