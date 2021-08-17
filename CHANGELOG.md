@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 4.1.2 (2021-08-17)
+
+### Fixed
+
+- An unhandled rejection error when initialising Wemo Link
+
 ## 4.1.1 (2021-08-12)
 
 ### Changed
