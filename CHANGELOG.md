@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 4.1.3 (2021-08-18)
+
+### Fixed
+
+- Better handling of NodeSSDP `No sockets available, cannot start.` error
+
 ## 4.1.2 (2021-08-17)
 
 ### Fixed
