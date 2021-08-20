@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Changed
+
+- Ignore `pywemo` virtual device type `urn:Belkin:device:switch:1`
+
 ## 4.1.3 (2021-08-18)
 
 ### Fixed
