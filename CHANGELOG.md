@@ -2,10 +2,11 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## UPCOMING
+## 4.1.5 (2021-09-05)
 
 ### Changed
 
+- Use `serialNumber` for accessory name if `friendlyName` not present
 - Recommended node version bumped to v14.17.6
 - Bump `axios` to v0.21.3
 
