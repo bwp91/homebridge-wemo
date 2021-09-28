@@ -2,6 +2,16 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 4.2.0
+
+### Added
+
+- `wemoClient.callback_url` configuration option to override the UPnP callback URL
+
+### Changed
+
+- UPnP callback url now uses the accessory UUID (not the UDN) so the plugin immediately knows which accessory a notification relates to
+
 ## 4.1.6 (2021-09-09)
 
 ### Changed
