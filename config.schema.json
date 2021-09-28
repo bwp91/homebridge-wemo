@@ -44,6 +44,12 @@
         "title": "Discovery Settings",
         "type": "object",
         "properties": {
+          "callback_url": {
+            "type": "string",
+            "title": "UPNP Callback IP/Port",
+            "placeholder": "192.168.1.13:2021",
+            "description": "Override the callback IP and port that is used for UPNP subscriptions."
+          },
           "listen_interface": {
             "type": "string",
             "title": "UPNP Interface",
@@ -800,6 +806,7 @@
         "wemoClient.discover_opts.explicitSocketBind",
         "pollingInterval",
         "disableUPNP",
+        "wemoClient.callback_url",
         "wemoClient.listen_interface",
         "wemoClient.port",
         "disableDeviceLogging",
