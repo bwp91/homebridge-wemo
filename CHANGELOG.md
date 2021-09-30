@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 4.2.2 (2021-09-30)
+
+### Fixed
+
+- Increase UPnP subscription time to 130 seconds to fix instances of `412` error
+
 ## 4.2.1 (2021-09-30)
 
 ### Changed
