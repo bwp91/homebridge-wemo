@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## UPCOMING
+
+### Changed
+
+- Bump `axios` to v0.22.0
+
 ## 4.2.2 (2021-09-30)
 
 ### Fixed
