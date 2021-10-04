@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## UPCOMING
+
+### Fixed
+
+- An error when trying to unregister a hidden accessory from Homebridge
+
 ## 4.2.3 (2021-10-03)
 
 ### Changed
