@@ -3,7 +3,7 @@
   "alias": "Wemo",
   "version": "4.2.3",
   "author": "bwp91",
-  "description": "Homebridge plugin to control Wemo devices.",
+  "description": "Homebridge plugin to integrate Wemo devices into HomeKit.",
   "license": "MIT",
   "keywords": [
     "homebridge",
@@ -17,7 +17,7 @@
   ],
   "main": "lib/index.js",
   "engines": {
-    "homebridge": "^1.3.4",
+    "homebridge": "^1.3.5",
     "node": "^14.18.0 || ^16.10.0"
   },
   "repository": {
