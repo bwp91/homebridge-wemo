@@ -2,7 +2,7 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## UPCOMING
+## BETA
 
 ### Changed
 
