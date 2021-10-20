@@ -4,6 +4,10 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 ## 4.2.5 (2021-10-20)
 
+### Changed
+
+- Some small changes to Fakegato debug logging
+
 ### Fixed
 
 - An Eve app 'no data' gap for garage devices when restarting the plugin
