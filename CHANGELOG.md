@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 4.2.5 (2021-10-20)
+
+### Fixed
+
+- An Eve app 'no data' gap for garage devices when restarting the plugin
+
 ## 4.2.4 (2021-10-16)
 
 ### Changed
