@@ -2,6 +2,10 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## UPCOMING
+
+### Changed
+
 ## 4.2.5 (2021-10-20)
 
 ### Changed
