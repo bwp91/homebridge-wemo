@@ -2,9 +2,13 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## UPCOMING
+## BETA
 
 ### Changed
+
+- Increase range of scanned ports from `49151` to `49159`
+- Bump `node` recommended versions to v14.18.1 or v16.13.0
+- Bump `axios` to v0.24.0
 
 ## 4.2.5 (2021-10-20)
 
