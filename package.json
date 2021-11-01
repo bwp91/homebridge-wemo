@@ -2,7 +2,10 @@
   "name": "homebridge-wemo",
   "alias": "Wemo",
   "version": "4.2.6",
-  "author": "bwp91",
+  "author": {
+    "name": "bwp91",
+    "email": "bwp91@icloud.com"
+  },
   "description": "Homebridge plugin to integrate Wemo devices into HomeKit.",
   "license": "MIT",
   "keywords": [
