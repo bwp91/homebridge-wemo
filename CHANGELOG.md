@@ -2,6 +2,16 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Added
+
+- Colour support for supported Wemo bulbs
+
+### Fixed
+
+- An `undefined` logging entry for the Wemo Insight
+
 ## 4.2.6 (2021-10-31)
 
 ### Changed
