@@ -7,6 +7,7 @@ All notable changes to homebridge-wemo will be documented in this file.
 ### Added
 
 - Colour support for supported Wemo bulbs
+- Filter status information for Wemo Holmes Purifier
 
 ### Fixed
 
