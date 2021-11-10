@@ -9,6 +9,10 @@ All notable changes to homebridge-wemo will be documented in this file.
 - Colour support for supported Wemo bulbs
 - Filter status information for Wemo Holmes Purifier
 
+### Changed
+
+- Recommended Homebridge bumped to v1.3.6
+
 ### Fixed
 
 - An `undefined` logging entry for the Wemo Insight
