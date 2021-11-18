@@ -2,16 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## BETA
+## 4.3.0 (2021-11-18)
 
 ### Added
 
 - Colour support for supported Wemo bulbs
 - Filter status information for Wemo Holmes Purifier
-
-### Changed
-
-- Recommended Homebridge bumped to v1.3.6
 
 ### Fixed
 
