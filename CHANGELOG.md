@@ -2,6 +2,16 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Changed
+
+- Allow a custom name for the Air Purifier since the device name in the Wemo app is not available to the plugin
+
+### Fixed
+
+- Fixed a characteristic warning for the Air Purifier
+
 ## 4.3.0 (2021-11-18)
 
 ### Added
