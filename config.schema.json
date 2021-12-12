@@ -16,19 +16,18 @@
       "mode": {
         "type": "string",
         "title": "Device Detection",
-        "description": "This setting defines how the plugin finds your devices.",
         "default": "auto",
         "oneOf": [
           {
-            "title": "Auto (Discover All & Manual Devices)",
+            "title": "Auto (Discover All & Manual IP Devices)",
             "enum": ["auto"]
           },
           {
-            "title": "Semi (Discover Configured & Manual Devices)",
+            "title": "Semi (Discover Configured & Manual IP Devices)",
             "enum": ["semi"]
           },
           {
-            "title": "Manual (Discovery Only Manual Devices)",
+            "title": "Manual (Discovery Only Manual IP Devices)",
             "enum": ["manual"]
           }
         ]
