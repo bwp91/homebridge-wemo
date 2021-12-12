@@ -101,6 +101,13 @@
         "placeholder": 30,
         "minimum": 15
       },
+      "upnpInterval": {
+        "type": "integer",
+        "title": "UPnP Subscription Interval",
+        "description": "An interval (in seconds) in which the plugin will resubscribe to UPnP notifications. Must be 60 or more.",
+        "placeholder": 120,
+        "minimum": 60
+      },
       "disableUPNP": {
         "type": "boolean",
         "title": "Disable UPnP",
@@ -796,6 +803,7 @@
         "wemoClient.discover_opts.explicitSocketBind",
         "pollingInterval",
         "disableUPNP",
+        "upnpInterval",
         "wemoClient.callback_url",
         "wemoClient.listen_interface",
         "wemoClient.port"
