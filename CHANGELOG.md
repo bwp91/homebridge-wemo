@@ -6,7 +6,7 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 ### Added
 
-- Option to specify the subscription time for UPnP subscriptions, eero users *may* benefit from increasing this value
+- Option to specify the subscription time for UPnP subscriptions, eero users _may_ benefit from increasing this value
 
 ### Changed
 
