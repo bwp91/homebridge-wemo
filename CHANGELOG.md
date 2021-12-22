@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 4.5.1 (2021-12-22)
+
+### Fixed
+
+- Option to specify the subscription time for UPnP subscriptions, eero users _may_ benefit from increasing this value
+
 ## 4.5.0 (2021-12-21)
 
 ### Added
