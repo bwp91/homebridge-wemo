@@ -6,6 +6,7 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 ### Changed
 
+- Plugin will log HAPNodeJS version on startup
 - Bump `homebridge` recommended version to v1.3.9
 
 ## 4.5.1 (2021-12-22)
