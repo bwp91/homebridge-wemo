@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Changed
+
+- Bump `homebridge` recommended version to v1.3.9
+
 ## 4.5.1 (2021-12-22)
 
 ### Fixed
