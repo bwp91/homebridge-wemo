@@ -400,14 +400,6 @@
                 "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
               }
             },
-            "enableColour": {
-              "title": "Enable Colour Control",
-              "type": "boolean",
-              "description": "Whether to enable RGB colour control for this bulb.",
-              "condition": {
-                "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
-              }
-            },
             "adaptiveLightingShift": {
               "title": "Adaptive Lighting Shift",
               "type": "integer",
@@ -880,7 +872,6 @@
             "wemoLights[].serialNumber",
             "wemoLights[].ignoreDevice",
             "wemoLights[].brightnessStep",
-            "wemoLights[].enableColour",
             "wemoLights[].adaptiveLightingShift",
             "wemoLights[].transitionTime",
             "wemoLights[].manualIP",
