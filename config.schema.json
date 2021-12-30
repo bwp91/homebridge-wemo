@@ -104,7 +104,7 @@
         "type": "integer",
         "title": "UPnP Subscription Interval",
         "description": "An interval (in seconds) in which the plugin will resubscribe to UPnP notifications. Must be 60 or more.",
-        "placeholder": 120,
+        "placeholder": 300,
         "minimum": 60
       },
       "disableUPNP": {

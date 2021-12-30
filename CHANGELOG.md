@@ -7,6 +7,7 @@ All notable changes to homebridge-wemo will be documented in this file.
 ### Changed
 
 - Option to explicitly enable colour RGB control for Wemo Link Bulbs
+- Default UPnP interval increased to `300` (5 minute interval)
 - Plugin will log HAPNodeJS version on startup
 - Bump `homebridge` recommended version to v1.3.9
 
