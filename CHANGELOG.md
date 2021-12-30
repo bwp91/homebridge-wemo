@@ -6,6 +6,7 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 ### Changed
 
+- Option to explicitly enable colour RGB control for Wemo Link Bulbs
 - Plugin will log HAPNodeJS version on startup
 - Bump `homebridge` recommended version to v1.3.9
 
