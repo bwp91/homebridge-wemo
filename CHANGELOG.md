@@ -4,6 +4,10 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 ## BETA
 
+### Changed
+
+- Bump `node` recommended versions to v14.18.3 or v16.13.2
+
 ### Fixed
 
 - Plugin crash for older versions of Homebridge
