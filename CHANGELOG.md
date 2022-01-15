@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Added
+
+- Config option to hide device connection errors from the log
+
 ## 4.5.4 (2022-01-13)
 
 ### Changed
