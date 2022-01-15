@@ -44,6 +44,10 @@
         "title": "Debug NodeSSDP",
         "type": "boolean"
       },
+      "hideConnectionErrors": {
+        "title": "Hide Connection Errors",
+        "type": "boolean"
+      },
       "disablePlugin": {
         "type": "boolean",
         "title": "Disable Plugin"
@@ -797,6 +801,7 @@
       "expandable": true,
       "items": [
         "disableDeviceLogging",
+        "hideConnectionErrors",
         "discoveryInterval",
         "wemoClient.discover_opts.interfaces",
         "wemoClient.discover_opts.explicitSocketBind",
