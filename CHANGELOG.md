@@ -8,6 +8,10 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 - Config option to hide device connection errors from the log
 
+### Changed
+
+- Bump `axios` to v0.25.0
+
 ## 4.5.4 (2022-01-13)
 
 ### Changed
