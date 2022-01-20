@@ -12,6 +12,10 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 - Bump `axios` to v0.25.0
 
+### Fixed
+
+- Unsupported devices will now only show once in the log when first discovered
+
 ## 4.5.4 (2022-01-13)
 
 ### Changed
