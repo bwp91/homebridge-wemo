@@ -4,12 +4,16 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 ## BETA
 
+See ⚠️ for potentially breaking changes
+
 ### Added
 
 - Config option to hide device connection errors from the log
 
 ### Changed
 
+- ⚠️ Config option added to manually enable colour control for Wemo Link bulbs
+  - Some bulbs that don't support colour control seem to report that they incorrectly do
 - Bump `axios` to v0.25.0
 
 ### Fixed
