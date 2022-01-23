@@ -8,6 +8,7 @@ See ⚠️ for potentially breaking changes
 
 ### Added
 
+- [Test] Support for Wemo Coffee Maker
 - Config option to hide device connection errors from the log
 
 ### Changed

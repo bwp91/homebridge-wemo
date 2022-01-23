@@ -717,7 +717,7 @@
       },
       "wemoOthers": {
         "title": "Wemo Others",
-        "description": "Optional settings for Wemo Heater, Dehumidifier, Air Purifier and Crockpot.",
+        "description": "Optional settings for Wemo Heater, Dehumidifier, Air Purifier, Crockpot and Coffee Maker.",
         "type": "array",
         "items": {
           "type": "object",
@@ -962,7 +962,7 @@
       "key": "wemoOthers",
       "expandable": true,
       "title": "Wemo Others",
-      "description": "Optional settings for Wemo Heater, Dehumidifier, Air Purifier and Crockpot.",
+      "description": "Optional settings for Wemo Heater, Dehumidifier, Air Purifier, Crockpot and Coffee Maker.",
       "add": "Add Another Device",
       "type": "array",
       "items": [
