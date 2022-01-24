@@ -16,6 +16,7 @@ See ⚠️ for potentially breaking changes
 - ⚠️ Config option added to manually enable colour control for Wemo Link bulbs
   - Some bulbs that don't support colour control seem to report that they incorrectly do
 - Bump `axios` to v0.25.0
+- Bump `homebridge` recommended version to v1.4.0
 
 ### Fixed
 
