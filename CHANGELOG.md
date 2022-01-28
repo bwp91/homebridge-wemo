@@ -2,13 +2,13 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## BETA
+## 4.6.0 (2022-01-28)
 
 See ⚠️ for potentially breaking changes
 
 ### Added
 
-- [Test] Support for Wemo Coffee Maker
+- Support for Wemo Coffee Maker
 - Config option to hide device connection errors from the log
 
 ### Changed
@@ -20,6 +20,7 @@ See ⚠️ for potentially breaking changes
 
 ### Fixed
 
+- HomeKit 'No Response' issue with Wemo Maker
 - Unsupported devices will now only show once in the log when first discovered
 
 ## 4.5.4 (2022-01-13)
