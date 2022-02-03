@@ -2,6 +2,16 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Added
+
+- Support for `HumidifierB` model of Wemo Humidifiers
+
+### Fixed
+
+- Characteristic warning for Wemo Humidifier
+
 ## 4.6.0 (2022-01-28)
 
 See ⚠️ for potentially breaking changes
@@ -9,7 +19,6 @@ See ⚠️ for potentially breaking changes
 ### Added
 
 - Support for Wemo Coffee Maker
-- Support for `HumidifierB` model of Wemo Humidifiers
 - Config option to hide device connection errors from the log
 
 ### Changed
