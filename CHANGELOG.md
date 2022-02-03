@@ -9,6 +9,7 @@ See ⚠️ for potentially breaking changes
 ### Added
 
 - Support for Wemo Coffee Maker
+- Support for `HumidifierB` model of Wemo Humidifiers
 - Config option to hide device connection errors from the log
 
 ### Changed
