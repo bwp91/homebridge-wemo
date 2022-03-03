@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Fixed
+
+- Accessory name logging on http receive device update failures
+
 ## 4.7.1 (2022-02-27)
 
 ### Changed
