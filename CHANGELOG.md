@@ -2,10 +2,16 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## BETA
+## 4.7.2 (2022-03-20)
+
+### Changed
+
+- Bump `axios` to v0.26.1
+- Bump `node` recommended versions to v14.19.1 or v16.14.2
 
 ### Fixed
 
+- Some fixes for Wemo Crockpot
 - Accessory name logging on http receive device update failures
 
 ## 4.7.1 (2022-02-27)
