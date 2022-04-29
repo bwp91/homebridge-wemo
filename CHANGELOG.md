@@ -2,6 +2,18 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 4.7.3 (2022-04-29)
+
+### Changed
+
+- Bump `axios` to v0.27.2
+- Bump `node` recommended versions to v14.19.1 or v16.15.0
+
+### Fixed
+
+- Node 18 `networkInterfaces` fix
+  - Note that Homebridge nor this plugin do not _officially_ support Node 18 until October 2022
+
 ## 4.7.2 (2022-03-20)
 
 ### Changed
