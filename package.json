@@ -7,6 +7,7 @@
     "email": "bwp91@icloud.com"
   },
   "description": "Homebridge plugin to integrate Wemo devices into HomeKit.",
+  "type": "module",
   "license": "MIT",
   "keywords": [
     "homebridge",
@@ -19,6 +20,10 @@
     "belkin"
   ],
   "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "rebuild": "rm -rf package-lock.json && rm -rf node_modules && npm install"
+  },
   "engines": {
     "homebridge": "^1.4.0",
     "node": "^14.19.1 || ^16.15.0"
@@ -51,13 +56,16 @@
   "dependencies": {
     "@homebridge/plugin-ui-utils": "^0.0.19",
     "axios": "^0.27.2",
-    "ip": "^1.1.5",
+    "ip": "^2.0.0",
     "node-ssdp": "^4.0.1",
-    "p-queue": "^6.6.2",
+    "p-queue": "^7.2.0",
     "xml2js": "^0.4.23",
     "xmlbuilder": "^15.1.1"
   },
-  "prettier": {
-    "printWidth": 100
+  "devDependencies": {
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-sort-exports": "^0.6.0",
+    "eslint": "^8.16.0"
   }
 }

@@ -2,6 +2,18 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Potentially Breaking Changes
+
+⚠️ The minimum required version of Homebridge is now v1.4.0
+⚠️ The minimum required version of Node is now v14
+
+### Changed
+
+- Changed to ESM package
+- Bump `ip` to v2.0.0
+
 ## 4.7.3 (2022-04-29)
 
 ### Changed
