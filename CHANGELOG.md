@@ -13,6 +13,7 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 - Changed to ESM package
 - Bump `ip` to v2.0.0
+- Bump `node` recommended versions to v14.19.3 or v16.15.0
 
 ## 4.7.3 (2022-04-29)
 
