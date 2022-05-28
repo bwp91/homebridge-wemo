@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 5.0.1 (2022-05-28)
+
+### Fixed
+
+- An error message when initialising Wemo motion devices
+
 ## 5.0.0 (2022-05-28)
 
 ### Potentially Breaking Changes
