@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 5.0.2 (2022-05-28)
+
+### Changed
+
+- More fixes and refactoring
+
 ## 5.0.1 (2022-05-28)
 
 ### Fixed
