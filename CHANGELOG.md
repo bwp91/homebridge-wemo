@@ -2,12 +2,16 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## BETA
+## 5.0.3 (2022-06-08)
 
 ### Changed
 
-- Update Crockpot logging error message with unknown value
 - Bump `node` recommended versions to v14.19.3 or v16.15.1
+
+### Fixed
+
+- Fix a Crockpot issue when plugin receives off value
+- A potential issue showing errors in the logs
 
 ## 5.0.2 (2022-05-28)
 
