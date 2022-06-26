@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Changed
+
+- Updated dev dependencies with more linting
+
 ## 5.0.3 (2022-06-08)
 
 ### Changed
