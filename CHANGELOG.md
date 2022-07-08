@@ -6,6 +6,7 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 ### Changed
 
+- Bump `node` recommended versions to v14.20.0 or v16.16.0
 - Updated dev dependencies with more linting
 
 ## 5.0.3 (2022-06-08)
