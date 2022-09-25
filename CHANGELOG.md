@@ -2,13 +2,14 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## BETA
+## 5.0.4 (2022-09-25)
 
 ### Changed
 
+- Correct parameters for `updatePlatformAccessories()`
 - Updated `homebridge` recommended version to v1.5.0
-- Bump `node` recommended versions to v14.20.0 or v16.17.0
-- Updated dev dependencies with more linting
+- Bump `node` recommended versions to v14.20.1 or v16.17.1
+- Updated dev dependencies
 
 ## 5.0.3 (2022-06-08)
 
