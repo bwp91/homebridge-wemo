@@ -55,7 +55,7 @@
   ],
   "dependencies": {
     "@homebridge/plugin-ui-utils": "^0.0.19",
-    "axios": "^0.27.2",
+    "axios": "^1.1.2",
     "ip": "^2.0.0",
     "node-ssdp": "^4.0.1",
     "p-queue": "^7.3.0",
