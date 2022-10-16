@@ -2,6 +2,13 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 5.0.5 (2022-10-16)
+
+### Changed
+
+- Bump `node` recommended versions to v14.20.1 or v16.18.0 or v18.11.0
+- Bump `axios` to v1.1.3
+
 ## 5.0.4 (2022-09-25)
 
 ### Changed
