@@ -26,7 +26,7 @@
   },
   "engines": {
     "homebridge": "^1.5.0",
-    "node": "^14.20.1 || ^16.18.0 || ^18.12.0"
+    "node": "^14.21.1 || ^16.18.1 || ^18.12.1"
   },
   "repository": {
     "type": "git",
@@ -67,6 +67,6 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-import-newlines": "^1.2.3",
     "eslint-plugin-sort-exports": "^0.7.0",
-    "eslint": "^8.26.0"
+    "eslint": "^8.27.0"
   }
 }
