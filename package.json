@@ -55,7 +55,7 @@
   ],
   "dependencies": {
     "@homebridge/plugin-ui-utils": "^0.0.19",
-    "axios": "^1.2.0",
+    "axios": "^1.2.1",
     "ip": "^2.0.0",
     "node-ssdp": "^4.0.1",
     "p-queue": "^7.3.0",
@@ -67,6 +67,6 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-import-newlines": "^1.3.0",
     "eslint-plugin-sort-exports": "^0.8.0",
-    "eslint": "^8.28.0"
+    "eslint": "^8.29.0"
   }
 }
