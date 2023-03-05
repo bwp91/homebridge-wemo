@@ -32,25 +32,9 @@
           }
         ]
       },
-      "debug": {
-        "title": "Debug Logging",
-        "type": "boolean"
-      },
-      "debugFakegato": {
-        "title": "Debug Fakegato",
-        "type": "boolean"
-      },
-      "debugNodeSSDP": {
-        "title": "Debug NodeSSDP",
-        "type": "boolean"
-      },
       "hideConnectionErrors": {
         "title": "Hide Connection Errors",
         "type": "boolean"
-      },
-      "disablePlugin": {
-        "type": "boolean",
-        "title": "Disable Plugin"
       },
       "discoveryInterval": {
         "type": "integer",
@@ -210,32 +194,6 @@
               "condition": {
                 "functionBody": "return (model.makerTypes && model.makerTypes[arrayIndices] && model.makerTypes[arrayIndices].serialNumber && model.makerTypes[arrayIndices].serialNumber.length > 0 && !model.makerTypes[arrayIndices].ignoreDevice);"
               }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.makerTypes && model.makerTypes[arrayIndices] && model.makerTypes[arrayIndices].serialNumber && model.makerTypes[arrayIndices].serialNumber.length > 0 && !model.makerTypes[arrayIndices].ignoreDevice);"
-              }
             }
           }
         }
@@ -339,32 +297,6 @@
               "condition": {
                 "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0 && !model.wemoInsights[arrayIndices].ignoreDevice);"
               }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0 && !model.wemoInsights[arrayIndices].ignoreDevice);"
-              }
             }
           }
         }
@@ -455,32 +387,6 @@
                 }
               ],
               "description": "UPnP allows for real-time notifications when your device is controlled, but can be problematic if your device is on a different IP network/VLAN to Homebridge. In this case you should use HTTP polling.",
-              "condition": {
-                "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
-              }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
               "condition": {
                 "functionBody": "return (model.wemoLights && model.wemoLights[arrayIndices] && model.wemoLights[arrayIndices].serialNumber && model.wemoLights[arrayIndices].serialNumber.length > 0 && !model.wemoLights[arrayIndices].ignoreDevice);"
               }
@@ -584,32 +490,6 @@
               "condition": {
                 "functionBody": "return (model.wemoMotions && model.wemoMotions[arrayIndices] && model.wemoMotions[arrayIndices].serialNumber && model.wemoMotions[arrayIndices].serialNumber.length > 0 && !model.wemoMotions[arrayIndices].ignoreDevice);"
               }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.wemoMotions && model.wemoMotions[arrayIndices] && model.wemoMotions[arrayIndices].serialNumber && model.wemoMotions[arrayIndices].serialNumber.length > 0 && !model.wemoMotions[arrayIndices].ignoreDevice);"
-              }
             }
           }
         }
@@ -685,32 +565,6 @@
               "condition": {
                 "functionBody": "return (model.wemoOutlets && model.wemoOutlets[arrayIndices] && model.wemoOutlets[arrayIndices].serialNumber && model.wemoOutlets[arrayIndices].serialNumber.length > 0 && !model.wemoOutlets[arrayIndices].ignoreDevice);"
               }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.wemoOutlets && model.wemoOutlets[arrayIndices] && model.wemoOutlets[arrayIndices].serialNumber && model.wemoOutlets[arrayIndices].serialNumber.length > 0 && !model.wemoOutlets[arrayIndices].ignoreDevice);"
-              }
             }
           }
         }
@@ -765,32 +619,6 @@
               "condition": {
                 "functionBody": "return (model.wemoOthers && model.wemoOthers[arrayIndices] && model.wemoOthers[arrayIndices].serialNumber && model.wemoOthers[arrayIndices].serialNumber.length > 0 && !model.wemoOthers[arrayIndices].ignoreDevice);"
               }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.wemoOthers && model.wemoOthers[arrayIndices] && model.wemoOthers[arrayIndices].serialNumber && model.wemoOthers[arrayIndices].serialNumber.length > 0 && !model.wemoOthers[arrayIndices].ignoreDevice);"
-              }
             }
           }
         }
@@ -800,7 +628,7 @@
   "layout": [
     {
       "type": "fieldset",
-      "items": ["mode", "debug", "disablePlugin"]
+      "items": ["mode"]
     },
     {
       "type": "fieldset",
@@ -839,8 +667,7 @@
             "makerTypes[].makerTimer",
             "makerTypes[].reversePolarity",
             "makerTypes[].manualIP",
-            "makerTypes[].listenerType",
-            "makerTypes[].overrideLogging"
+            "makerTypes[].listenerType"
           ]
         }
       ]
@@ -864,8 +691,7 @@
             "wemoInsights[].timeDiff",
             "wemoInsights[].showAs",
             "wemoInsights[].manualIP",
-            "wemoInsights[].listenerType",
-            "wemoInsights[].overrideLogging"
+            "wemoInsights[].listenerType"
           ]
         }
       ]
@@ -889,8 +715,7 @@
             "wemoLights[].adaptiveLightingShift",
             "wemoLights[].transitionTime",
             "wemoLights[].manualIP",
-            "wemoLights[].listenerType",
-            "wemoLights[].overrideLogging"
+            "wemoLights[].listenerType"
           ]
         }
       ]
@@ -930,8 +755,7 @@
             "wemoMotions[].serialNumber",
             "wemoMotions[].ignoreDevice",
             "wemoMotions[].noMotionTimer",
-            "wemoMotions[].manualIP",
-            "wemoMotions[].overrideLogging"
+            "wemoMotions[].manualIP"
           ]
         }
       ]
@@ -952,8 +776,7 @@
             "wemoOutlets[].ignoreDevice",
             "wemoOutlets[].showAs",
             "wemoOutlets[].manualIP",
-            "wemoOutlets[].listenerType",
-            "wemoOutlets[].overrideLogging"
+            "wemoOutlets[].listenerType"
           ]
         }
       ]
@@ -973,8 +796,7 @@
             "wemoOthers[].serialNumber",
             "wemoOthers[].ignoreDevice",
             "wemoOthers[].manualIP",
-            "wemoOthers[].listenerType",
-            "wemoOthers[].overrideLogging"
+            "wemoOthers[].listenerType"
           ]
         }
       ]
