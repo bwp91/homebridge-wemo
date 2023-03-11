@@ -2,7 +2,7 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## BETA
+## 6.0.0 (2023-03-11)
 
 ### Breaking
 
@@ -14,7 +14,7 @@ All notable changes to homebridge-wemo will be documented in this file.
 ### Changed
 
 - Bump `homebridge` recommended version to v1.6.0 or v2.0.0-beta
-- Bump `node` recommended versions to v16.19.1 or v18.14.2
+- Bump `node` recommended versions to v16.19.1 or v18.15.0
 
 ## 5.0.5 (2022-10-16)
 
