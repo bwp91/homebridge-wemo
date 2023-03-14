@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Fixed
+
+- Eve switch values for light switches
+
 ## 6.0.0 (2023-03-11)
 
 ### Breaking
