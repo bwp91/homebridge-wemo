@@ -2,7 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## BETA
+## 6.0.1 (2023-04-05)
+
+### Changed
+
+- Simplify log welcome messages
+- Bump `node` recommended versions to v16.20.0 or v18.15.0
 
 ### Fixed
 
