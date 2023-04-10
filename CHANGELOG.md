@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 6.0.2 (2023-04-10)
+
+### Changed
+
+- Bump `xml2js` dependency
+
 ## 6.0.1 (2023-04-05)
 
 ### Changed
