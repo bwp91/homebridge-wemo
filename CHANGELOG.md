@@ -2,6 +2,13 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 6.0.4 (2023-05-01)
+
+### Changed
+
+- README changes
+- Dependency updates
+
 ## 6.0.3 (2023-04-22)
 
 ### Changed
