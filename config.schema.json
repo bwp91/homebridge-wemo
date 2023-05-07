@@ -271,6 +271,14 @@
                 "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0 && !model.wemoInsights[arrayIndices].ignoreDevice);"
               }
             },
+            "outletInUseTrue": {
+              "type": "boolean",
+              "title": "Outlet In Use - Force True",
+              "description": "When enabled, the plugin will always report the outlet as in use.",
+              "condition": {
+                "functionBody": "return (model.wemoInsights && model.wemoInsights[arrayIndices] && model.wemoInsights[arrayIndices].serialNumber && model.wemoInsights[arrayIndices].serialNumber.length > 0 && !model.wemoInsights[arrayIndices].ignoreDevice) && model.wemoInsights[arrayIndices].showAs && !['switch','purifier'].includes(model.wemoInsights[arrayIndices].showAs);"
+              }
+            },
             "manualIP": {
               "type": "string",
               "title": "Manual IP/URL",
@@ -690,6 +698,7 @@
             "wemoInsights[].wattDiff",
             "wemoInsights[].timeDiff",
             "wemoInsights[].showAs",
+            "wemoInsights[].outletInUseTrue",
             "wemoInsights[].manualIP",
             "wemoInsights[].listenerType"
           ]
