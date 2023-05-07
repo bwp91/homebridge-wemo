@@ -2,6 +2,16 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Added
+
+- Configuration option to force enable a Wemo Insight to always show outlet in use to true
+
+### Changed
+
+- Bump `node` supported versions to v16.20.0 or v18.16.0 or v20.1.0
+
 ## 6.0.4 (2023-05-01)
 
 ### Changed
