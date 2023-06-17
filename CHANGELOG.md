@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## BETA
+
+### Fixed
+
+- Show config option `outletInUseTrue` even when `showAs` is not selected
+
 ## 6.1.0 (2023-06-17)
 
 ### Added
