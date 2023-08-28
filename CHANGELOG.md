@@ -4,6 +4,15 @@ All notable changes to homebridge-wemo will be documented in this file.
 
 ## BETA
 
+⚠️ Note this will be the last version of the plugin to support Node 16.
+- Node 16 moves to 'end of life' on 2023-09-11 ([more info](https://nodejs.org/en/blog/announcements/nodejs16-eol))
+- This is in-line with the Homebridge guidelines on supporting node versions ([more info](https://github.com/homebridge/homebridge/wiki/How-To-Update-Node.js/))
+- If you are currently using Node 16, now is a good time to upgrade to Node 18 or 20 (see the link above for more info)
+
+### Changed
+
+- Updated dependencies
+
 ### Fixed
 
 - Show config option `outletInUseTrue` even when `showAs` is not selected
