@@ -34,7 +34,7 @@ Homebridge plugin to integrate Wemo devices into HomeKit
 
 - [Installation](https://github.com/bwp91/homebridge-wemo/wiki/Installation)
 - [Configuration](https://github.com/bwp91/homebridge-wemo/wiki/Configuration)
-- [Beta Version](https://github.com/bwp91/homebridge-wemo/wiki/Beta-Version)
+- [Beta Version](https://github.com/homebridge/homebridge/wiki/How-to-Install-Alternate-Plugin-Versions)
 - [Node Version](https://github.com/bwp91/homebridge-wemo/wiki/Node-Version)
 
 ### Features
