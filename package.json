@@ -25,8 +25,8 @@
     "rebuild": "rm -rf package-lock.json && rm -rf node_modules && npm install"
   },
   "engines": {
-    "homebridge": "^1.6.0 || ^2.0.0-beta.0",
-    "node": "^16.20.2 || ^18.17.1 || ^20.7.0"
+    "homebridge": "^1.6.0",
+    "node": "^18.18.2 || ^20.9.0"
   },
   "repository": {
     "type": "git",
@@ -54,8 +54,8 @@
     }
   ],
   "dependencies": {
-    "@homebridge/plugin-ui-utils": "^0.1.0",
-    "axios": "^1.5.0",
+    "@homebridge/plugin-ui-utils": "^1.0.0",
+    "axios": "^1.5.1",
     "ip": "^2.0.0",
     "node-ssdp": "^4.0.1",
     "p-queue": "^7.4.1",
@@ -63,9 +63,9 @@
     "xmlbuilder": "^15.1.1"
   },
   "devDependencies": {
-    "eslint": "^8.49.0",
+    "eslint": "^8.52.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-import-newlines": "^1.3.4",
     "eslint-plugin-sort-exports": "^0.8.0"
   }

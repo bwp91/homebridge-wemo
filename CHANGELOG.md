@@ -2,6 +2,17 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
+## 7.0.0 (2023-10-25)
+
+### Changed
+
+- Updated dependencies
+- Bump `node` supported versions to v18.18.2 or v20.8.1
+
+### Removed
+
+- Support for node 16
+
 ## 6.1.2 (2023-09-18)
 
 ⚠️ Note this will be the last version of the plugin to support Node 16.
