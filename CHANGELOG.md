@@ -2,12 +2,12 @@
 
 All notable changes to homebridge-wemo will be documented in this file.
 
-## 7.0.0 (2024-02-10)
+## BETA
 
 ### Changed
 
 - Updated dependencies
-- Bump `node` supported versions to v18.18.2 or v20.8.1
+- Bump `node` supported versions to v18.19.1 or v20.11.1
 
 ### Fixed
 
